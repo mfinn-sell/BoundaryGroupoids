@@ -16,6 +16,7 @@
 \usepackage{a4wide}
 \usepackage{enumerate}
 \usepackage{hyperref}
+%\usepackage{showkeys}
 
 %Theorem styles.
 
@@ -111,6 +112,88 @@ The first author wishes to thank the second author, his supervisor, for his unen
 %Change the theorem labellings
 \numberwithin{theorem}{section}
 
+\subsection{Groupoids, expanders and the coarse Baum-Connes conjecture.}
+A \textit{groupoid} is a small category in which every arrow is invertible, we do not unpack this here but instead offer references \cite{}. A groupoid is \textit{principal} if $(r,s): \G \rightarrow \G^{(0)} \times \G^{(0)}$ is injective and \textit{transitive} if $(r,s)$ is surjective. A groupoid $\G$ is a \textit{topological groupoid} if both $\G$ and $\G^{(0)}$ are topological spaces, and the maps $r,s, ^{-1}$ and the composition are all continuous. A Hausdorff, locally compact topological groupoid $\G$ is \textit{proper} if $(r,s)$ is a proper map and \textit{\'etale} or \textit{r-discrete} if the map $r$ is a local homeomorphism. When $\G$ is \'etale, $s$ and the product are also local homeomorphisms, and $\G^{(0)}$ is an open subset of $\G$.
+
+\begin{definition}
+Let $\G$ be a groupoid and let $x,y \in \G^{(0)}$ and $A,B \subset \G^{(0)}$. Set:
+\begin{enumerate}
+\item $\G_{x}=s^{-1}(x)$
+\item $\G^{y}=r^{-1}(y)$
+\item $\G^{y}_{x}=\G^{y} \cap \G_{x}$
+\end{enumerate}
+Denote by $\G|_{A}$ the subgroupoid $\G_{A}^{A}$, called the \textit{reduction} of $\G$ to $A$. In particular it is worth noting that the groupoids $\G|_{\lbrace x \rbrace}$ are in fact groups, and we say that for a given $x \in \G^{(0)}$ that the group $\G^{x}_{x}$ is the \textit{isotropy} group at $x$.
+\end{definition}
+
+\begin{definition}
+Let $\G$ be a locally compact groupoid and let $Z$ be a locally compact space. $\G$ acts on $Z$ (or $Z$ is a $\G$-space) if there is a continuous, open map $r_{Z}: Z \rightarrow \G^{(0)}$ and a continous map $(\gamma, z) \mapsto \gamma .z$ from $\G \ast Z:= \lbrace (\gamma, z) \in \G \times Z | s_{\G}(\gamma)=r_{Z}(z)\rbrace$ to $Z$ such that $r_{Z}(z).z=z$ for all $z$ and $(\eta \gamma).z= \eta.(\gamma. z)$ for all $\gamma, \eta \in \G^{(2)}$ with $s_{\G}(\gamma)=r_{Z}(z)$.
+\end{definition}
+
+When it is clear we drop the subscripts on each map. Right actions are dealt with similarly, replacing each incidence of $r_{Z}$ with $s_{Z}$.
+
+\begin{definition}
+Let $\G$ act on $Z$. The action is said to be \textit{free} if $\gamma.z=z$ implies that $\gamma = r_{Z}(z)$.
+\end{definition}
+We end this section with some useful examples.
+
+\begin{example}\label{Ex:TransGrp}
+Let $X$ be a topological $\Gamma$-space. Then the \textit{transformation groupoid} associated to this action is given by the data $X \times G \rightrightarrows X$ with $s(x,g)=x$ and $r(x,g)=g.x$. We denote this by $X \rtimes G$. A basis $\lbrace U_{i} \rbrace$ for the topology of $X$ lifts to a basis for the topology of $X \rtimes G$, given by sets $[U_{i},g]:=\lbrace (u,g) | u \in U_{i} \rbrace$. 
+\end{example}
+
+\begin{example}
+The construction in the example above can be generalized to actions of \'etale groupoids. We are concerned with the topology here: Given an \'etale groupoid $\G$ and a $\G$-space $X$ as well as a with a basis $\lbrace U_{i} \rbrace$ for $\G^{(0)}$. We can pull this basis back to a basis for $X \rtimes \G$ given by $[r_{z}^{-1}(U_{i}),\gamma]$, where $U_{i} \subseteq s(\gamma)$.
+\end{example}
+
+\begin{example}Let $X$ be a coarse space with uniformly locally finite, weakly connected coarse structure $\mathcal{E}$. Define $G(X):=\cup_{E\in \mathcal{E}}\overline{E}.$ Then $G(X)$ is a locally compact, \'etale groupoid with the induced product, inverse and topology from $\beta X \times \beta X$.
+\end{example}
+As we are considering the metric coarse structure we can reduce this to considering only generators:
+\begin{equation*}
+G(X):=\bigcup_{R>0}\overline{\Delta_{R}}
+\end{equation*}
+The following is an integral part of \cite{MR1905840} and proofs of the quoted results can be found in \cite{MR2007488}.
+\begin{theorem}
+Let $X$ be a uniformly discrete bounded geometry metric space. Then following hold:
+\begin{enumerate}
+\item $G(X)$ is an \'etale locally compact Hausdorff principal topological groupoid with unit space $G(X)^{(0)}=\beta X$. \cite[Theorem 10.20]{MR2007488}\cite[Proposition 3.2]{MR1905840};
+\item $C^{*}_{r}(G(X))$ is isomorphic to the uniform Roe algebra $C^{*}_{u}(X)$. \cite[Proposition 10.29]{MR2007488};
+\item The coarse Baum-Connes conjecture for $X$ is equivalent to the Baum-Connes conjecture for $G(X)$ with coefficients in $\ell^{\infty}(X,\mathcal{K})$. \cite[Lemma 4.7]{MR1905840}.
+\end{enumerate}
+\end{theorem}
+
+Lastly, we recall the definition of an expander:
+
+\begin{definition}
+Let $\lbrace X_{i} \rbrace$ be a sequence of finite graphs and let $X$ be the associated space of graphs. Then the space $X$ (or the sequence $\lbrace X_{i} \rbrace$) is an \textit{expander} if:
+\begin{enumerate}
+\item There exists $k\in \mathbb{N}$ such that all the vertices of each $X_{i}$ have degree at most $k$.
+\item $\vert X_{i} \vert \rightarrow \infty$ as $i\rightarrow \infty$.
+\item There exists $c>0$ such that $spectrum(\Delta_{i})\subseteq \lbrace 0 \rbrace \cup [c,1]$ for all $i$.
+\end{enumerate}
+\end{definition}
+
+\begin{remark}\label{Rem:Ghost}
+Each Laplacian $\Delta_{i}$ has propagation $1$, so we can form the product in the (algebraic) Roe algebra:
+\begin{equation*}
+\Delta:=\prod_{i}(\Delta_{i} \otimes q) \in C^{*}_{u}(X)\otimes \mathcal{K} \subset C^{*}X
+\end{equation*}
+For an expander $X$ we have $spectrum(\Delta) \subseteq \lbrace 0 \rbrace \cup [c,1]$ for some $c>0$. So we can consider the limit:
+\begin{equation*}
+p = \lim_{t \rightarrow \infty}e^{-t\Delta}
+\end{equation*}
+The spectral gap in $spectrum(\Delta)$ tells us that this limit converges in the strong operator topology and is a projection associated to the $0 \in spectrum(\Delta)$. $p$ is the kernel of $\Delta$, and is one method of producing the projection onto the constant functions on each $X_{i}$. In fact this projection breaks up as:
+\begin{equation*}
+p=\prod_{i}p^{(i)}
+\end{equation*}
+But the key point is that it is an element of $C^{*}X$ (in fact an element of $\mathbb{C}[X]$), and each $p^{(i)}$ is the projection onto the constant functions in $\ell^{2}(X_{i})$. 
+\end{remark}
+The following notion is due to Guoliang Yu (unpublished):
+
+\begin{definition}
+An operator $T \in C^{*}X$ is a \textit{ghost operator} if $\forall \epsilon >0$ there exists a bounded subset $B \subset X\times X$ such that the norm: $\Vert T_{xy} \Vert \leq \epsilon$ for all $(x,y) \in (X\times X) \setminus B$.
+\end{definition}
+
+The kernel $p$ of the Laplacian $\Delta$ is a ghost operator.
+
 \section{Counterexamples to the coarse Baum-Connes conjecture and Boundary Groupoids}\label{Sect:CE}
 
 Throughout this section let $G$ be an \'etale, Hausdorff locally compact topological groupoid. These are essentially unnecessary assumptions but we will only require groupoids in this class to fit with the coarse picture we are interested in. We outline the main concept introduced in \cite{MR1911663}. 
@@ -119,7 +202,7 @@ Throughout this section let $G$ be an \'etale, Hausdorff locally compact topolog
 A subset of $F\subseteq G^{(0)}$ is said to be \textit{saturated} if for every element of $\gamma \in G$ with $s(\gamma) \in F$ we have $r(\gamma) \in F$. For such a subset we can form subgroupoid of $G$, denoted by $G_{F}$ which has unit space $F$ and $G_{F}^{(2)}=\lbrace \gamma \in G | s(\gamma) \mbox{ and } r(\gamma) \in F \rbrace$.
 \end{definition}
 
-We will be considering closed saturated subsets $F$. We remark also that the compliment $F^{c}$ is an open saturated set. The motivation from our point of view for considering closed saturated subsets is the decomposition:
+We will be considering closed saturated subsets $F$. Any subset of this type gives rise to an algebraic decomposition:
 \begin{equation*}
 G = G_{F^{c}}\sqcup G_{F}
 \end{equation*}
@@ -131,7 +214,7 @@ Where the quotient map $C_{c}(G) \rightarrow C_{c}(G_{F})$ is given by restricti
 \begin{equation*}
 0 \rightarrow C_{max}^{*}(G_{F^{c}}) \rightarrow C_{max}^{*}(G) \rightarrow C_{max}^{*}(G_{F}) \rightarrow 0.
 \end{equation*}
-On the other hand this may fail to be an exact sequence when we complete in the norm that arises from any specific representation, for example the left regular representation $\lambda_{G}$; this can be detected at the level of K-theory, as discussed in \cite{MR1911663}, by considering the sequence:
+On the other hand this may fail to be an exact sequence when we complete in the norm that arises from the left regular representation $\lambda_{G}$. This is detected at the level of K-theory, as discussed in \cite{MR1911663}, by considering the sequence:
 \begin{equation}\label{eqn:neim}
 K_{0}(C^{*}_{r}(G_{U}))\rightarrow K_{0}(C^{*}_{r}(G)) \rightarrow K_{0}(C^{*}_{r}(G_{F}))
 \end{equation}
@@ -640,17 +723,17 @@ Recall a groupoid $G$ is said to be \textit{principal} if the map $(s,r): G \rig
 Let $\lbrace X_{i} \rbrace$ be a sequence of finite graphs and let $X$ be the corresponding space of graphs. If $\theta:G \rightarrow \mathcal{I}(X)$ is a bounded partial action of $G$ on $X$ such that the induced action on $\beta X$ is free on $\partial \beta X$, the inverse monoid $S_{inf}$ is 0-F-inverse with maximal element set $\lbrace \theta_{g} |g \in G\rbrace$ and the partial action finitely generates the metric coarse structure at infinity then there is a second countable, \'etale topological groupoid $\G_{\widehat{X}}$ such that $G(X)|_{\partial\beta X} \cong \partial\beta X \rtimes \G_{\widehat{X}}$.
 \end{proposition}
 \begin{proof}
-Observe now that the finite $\theta_{g}$ play no role in the action on the boundary. Thus we do not need to consider them during the following construction of a groupoid, we can just work with the strongly 0-F-inverse monoid $S_{inf}$.To build the groupoid $\G_{\widehat{X}}$ we first build a space $\widehat{X}$, which is done by considering the partial action and inverse monoid it generates inside $\mathcal{I}(X)$, and then using this space to construct a reduction of the universal groupoid $\G_{\E(S_{inf})}$. 
+Observe now that the finite $\theta_{g}$ play no role in the action on the boundary and so we work with $S_{inf}$. We build the groupoid from the bottom up, by first constructing the unit space using Proposition 10.6 and Theorem 10.16 from \cite{MR2419901}.
 
-We build the unit space $\widehat{X}$ of the groupoid using some results from \cite[Proposition 10.6, Theorem 10.16]{MR2419901}. The first leads us to consider the representation of the inverse monoid $S_{inf}$ on $\ell^{2}(X)$ induced by $\theta$ to get a representation $\pi_{\theta}:S \rightarrow \mathcal{B}(\ell^{2}(X))$. We can complete the semigroup ring in this representation to get an algebra $C^{*}_{\pi_{\theta}}S$, which has a unital commutative subalgebra $C^{*}_{\pi_{\theta}}E$. \cite[Proposition 10.6]{MR2419901} then tells us that the spectrum of this algebra, which we will denote by $\widehat{X}$, is a subspace of $\E$ that is closed and invariant under the action of $S$ on which the representation $\pi_{\theta}$ is supported (see \cite[Section 10]{MR2419901} for more details). 
+We consider the representation of the inverse monoid $S_{inf}$ on $\ell^{2}(X)$ induced by $\theta$ to get a representation $\pi_{\theta}:S \rightarrow \mathcal{B}(\ell^{2}(X))$. We can complete the semigroup ring in this representation to get an algebra $C^{*}_{\pi_{\theta}}S$, which has a unital commutative subalgebra $C^{*}_{\pi_{\theta}}E$. Proposition 10.6 \cite{MR2419901} then tells us that the spectrum of this algebra, which we will denote by $\widehat{X}$, is a subspace of $\E$ that is closed and invariant under the action of $S$ on which the representation $\pi_{\theta}$ is supported.
 
 As the space $\widehat{X}$ is closed and invariant we can reduce the universal groupoid $\G_{\E}$ for $S_{inf}$ to $\widehat{X}$. This we denote by $\G_{\widehat{X}}$. 
 
-This gives us a groupoid, $\G_{\widehat{X}}$. To make this act on $\beta X$ we make use of the assumption that $\theta_{g}$ is a bounded partial bijection for each $g \in G$ and again of the representation $\pi_{\theta}$. Each $\theta_{g}$ bounded implies that the algebra $C^{*}_{\theta}(S)$$ is a subalgebra of $C^{*}_{u}X$. We now remark that the representation $\pi_{X}$, when restricted to $C^{*}E$ assigns each idempotent a projection in $C^{*}_{u}X$, that is $C^{*}_{\pi_{X}}(E)=\pi_{X}(C^{*}E) \subset \ell^{\infty}(X)$. Taking the spectra associated to this inclusion then gives us a map:
+We show this groupoid acts on $\beta X$; we make use of the assumption that $\theta_{g}$ is a bounded partial bijection for each $g \in G$ and again of the representation $\pi_{\theta}$. Each $\theta_{g}$ bounded implies that the algebra $C^{*}_{\theta}(S)$ is a subalgebra of $C^{*}_{u}X$. We now remark that the representation $\pi_{X}$, when restricted to $C^{*}E$ assigns each idempotent a projection in $C^{*}_{u}X$, that is $C^{*}_{\pi_{X}}(E)=\pi_{X}(C^{*}E) \subset \ell^{\infty}(X)$. Taking the spectra associated to this inclusion then gives us a map:
 \begin{equation*}
 r_{\beta X}: \beta X \twoheadrightarrow \widehat{X}
 \end{equation*}
-which is continuous. In particular as both $\beta X$ and $\widehat{X}$ are compact Hausdorff spaces, this map is closed (and open) and hence a quotient. We make use of this to define an action on $\beta X$. By Claim \ref{Claim:C1} we have that each element of our groupoid $\G_{\widehat{X}}$ can be represented by a pair $[\theta_{g}, \phi]$, for some $\phi \in \widehat{X}$. Observe also that as $X$ is discrete so are all of it subspaces, hence the maps $\theta_{g}$ are continous (open) for each $g \in G$. These then extend to $\beta X$, and so coupled with the map $r_{\beta X}$ we can act by:
+which is continuous. In particular as both $\beta X$ and $\widehat{X}$ are compact Hausdorff spaces; this map is closed (and open) and hence a quotient. We make use of this to define an action on $\beta X$. By Claim \ref{Claim:C1} we have that each element of our groupoid $\G_{\widehat{X}}$ can be represented by a pair $[\theta_{g}, \phi]$, for some $\phi \in \widehat{X}$. Observe also that as $X$ is discrete so are all of it subspaces, hence the maps $\theta_{g}$ are continuous (open) for each $g \in G$. These then extend to $\beta X$, and so coupled with the map $r_{\beta X}$ we can act by:
 \begin{equation*}
 [\theta_{g},\phi].\omega = \theta_{g}(\omega)
 \end{equation*}
@@ -675,7 +758,7 @@ We now restrict this map to the boundary $\partial\beta X$. As we know that the 
 \item $\partial\beta X \rtimes \G_{\widehat{X}}$ is principal.
 \item $G(X)|_{\partial\beta X} = \bigsqcup_{g}\overline{\Delta_{\theta_{g}}}\setminus \Delta_{\theta_{g}}$. 
 \end{enumerate}
-From both (1) and (2) we can further deduce that the covering map is a bijection on the boundary. Both groupoids are also \'etale and so each component $\overline{\Delta_{\theta_{g}}}\setminus \Delta_{\theta_{g}}$ is mapped homeomorphically onto its image and is therefore clopen. It follows then that we get the desired isormorphism $\partial\beta X \rtimes \G_{\widehat{X}} \cong G(X)|_{\partial\beta X}$ of topological groupoids.\end{proof}
+From both (1) and (2) we can further deduce that the covering map is a bijection on the boundary. Both groupoids are also \'etale and so each component $\overline{\Delta_{\theta_{g}}}\setminus \Delta_{\theta_{g}}$ is mapped homeomorphically onto its image and is therefore clopen. It follows then that we get the desired isomorphism $\partial\beta X \rtimes \G_{\widehat{X}} \cong G(X)|_{\partial\beta X}$ of topological groupoids.\end{proof}
 
 We are interested in understanding the analytic properties of the groupoid $\G_{\widehat{X}}$. In particular we are interested in showing that the groupoid has the Haagerup property. To do this we study the inverse monoid $S$ associated to the partial action $\theta$.
 
@@ -770,11 +853,7 @@ We work on just the $X_{i}$. Using Lemma \ref{Lem:GenPet}, we partition the edge
 For $g=a_{l}^{e_{l}}...a_{m}^{e_{m}}$ we define $\theta^{i}_{g}$ as the product $\theta_{a_{l}^{e_{l}}}...\theta_{a_{m}^{e_{m}}}$; i.e $\theta_{g}^{i}$ moves vertices along any path that is labelled by the word $g$ in the graph $X_{i}$. We observe that for $i \not = i^{'}$ the domain $D_{\theta_{g}^{*}\theta_{g}}^{i}\cap D_{\theta_{g}^{*}\theta_{g}}^{i^{'}}$ is empty hence we can add these partial bijections in $I(X)$ to form $\theta_{g}=\sqcup\theta_{g}^{i}$. It is a remark that as the topology of $X$ is discrete these maps are all continuous and open. It is clear that as each $X_{i}$ is connected that the partial bijections have the property that $\cup_{g} D_{\theta_{g}^{*}\theta_{g}} = X$. Lastly, this map is a dual prehomomorphism as for each $g,h \in G$ we have that $\theta_{g}\theta_{h}=\theta_{gh}$ precisely when both $\theta_{h}$ and $\theta_{gh}$ are defined and moreover if $\theta_{g}\theta_{h}$ is defined then so is $\theta_{gh}$. Hence this collection forms a partial action of $G$ on $X$. We also remark that as each bijection is given translation along a labelling in the free group it is clear that these move elements only a bounded distance and are therefore elements of $I_{b}(X)$.
 \end{proof}
 
-\begin{remark}
-If we consider the proof of the above Lemma then it would seem that for every $\theta_{g},\theta_{h}$ we have that $\theta_{g}\theta_{h} = \theta_{gh}$. However this might not be the case because of cancellation that occurs in the group but not in the partial bijections. 
-\end{remark}
-
-We would want to show that the partial action generates the metric coarse structure at infinity, we recall the length of a partial bijection:
+We need to show that the partial action generates the metric coarse structure at infinity, we recall the length of a partial bijection:
 
 \begin{definition}
 The length of each $\theta_{g}$ is defined to be:
@@ -822,15 +901,46 @@ We complete the proof by observing that for each $\theta_{g} \in A_{fin}$ the se
 \overline{\Delta_{R}}\setminus \Delta_{R} = \bigcup_{g \in A_{\infty}}\overline{\Delta_{\theta_{g}}}\setminus \Delta_{\theta_{g}}= \bigcup_{\vert g \vert < R}\overline{\Delta_{\theta_{g}}}\setminus \Delta_{\theta_{g}}
 \end{equation*}\end{proof}
 
-As in the case of uniform regularity we also need to see that the action is free. Ideally we would argue as if we were in the group case; for each $g \in F_{k}$ choose a point in each $X_{i}$ and consider its orbits as was implemented in Lemma \ref{Lem:MT3}. However, this argument does not work as we are faced with the problem that for a partial action the concept of orbit is not well-defined, or in particular it may not always be possible to apply an element $\theta_{i}(g)$ twice to things within its domain. 
+The following is a concept of orbit:
+\begin{definition}
+We say a subset $\mathcal{A}_{g} \subset X$ is a \textit{stable core} for the element $\theta_{g}$ if $\theta_{g}(\mathcal{A}_{g})=\mathcal{A}_{g}$. 
+\end{definition}
+Recall that for each subset $A$ of $X$, $\widehat{D}_{A}:=\lbrace \omega \in \partial \beta X | A \in \omega \rbrace$.
 
-\begin{lemma}\label{Lem:ParFree}
-The bounded partial action extends to $\beta X$ and is a free partial action on the boundary $\partial \beta X$. 
+\begin{lemma}\label{Lem:StabCore}
+Let $\theta: F_K} \rightarrow I_{b}(X)$ be the partial action defined above. If $\mathcal{A}_{g}$ is a stable core then for any $\omega \in \widehat{D}_{\mathcal{A}_{g}}$ $\omega \not = \theta_{g}(\omega)$.
 \end{lemma}
 \begin{proof}
-The partial action is by continuous maps on each element of the sequence. By the universal property of the Stone-\u{C}ech compactification we can then extend. So as with the case with a genuine action the technicality lies in proving the action is free on the boundary.
+Take $x_{i}\in \mathcal{A}^{i}_{g}$. Then let $n_{i}$ the the smallest integer such that $\theta_{g}(x_{i})=x_{i}$. We observe also that there are two cases as for any $\omega \in D_{\mathcal{A}_{g}}$ as we know that the pieces: 
+\begin{eqnarray*}
+\mathcal{A}_{even}=\bigsqcup_{n_{i}\equiv 0 mod 2} \mathcal{A}_{g}^{i}\\
+\mathcal{A}_{odd}=\bigsqcup_{n_{i} \equiv 1 mod 2} \mathcal{A}_{g}^{i}
+\end{eqnarray*}
+are mutually complimentary and union to the entire of $\mathcal{A}_{g}^{i}$, hence $\omega$ picks either $\mathcal{A}_{even}$ or $\mathcal{A}_{odd}$.
 
-The proof breaks into 3 cases relying as always on the ``ultra'' property. We break our domain $D_{\theta_{g}^{*}\theta_{g}}:=\sqcup_{i \in \mathbb{N}} D_{\theta_{g}^{*}\theta_{g}}^{i}$ up into three (possibly infinite) pieces, based on how the action by $g$ behaves. The first piece, index denoted $I_{0}$, consists of all the $D_{g^{*}g}^{i}$ such that $D_{\theta_{g}^{*}\theta_{g}}^{i} \cap D_{\theta_{g}\theta_{g}^{*}}^{i}$ is empty; the second, indexed by $I_{1}$, consists of all the $D_{\theta_{g}^{*}\theta_{g}}^{i}$ such that $D_{\theta_{g}^{*}\theta_{g}}^{i}\cap D_{\theta_{g}\theta_{g}^{*}}^{i}$ is not empty but $D_{\theta_{g}^{*}\theta_{g}}^{i}$ is not contained in $D_{\theta_{g}\theta_{g}^{*}}^{i}$; and the third, denoted by $I_{2}$ is all the $D^{i}_{\theta_{g}^{*}\theta_{g}}$ such that $D_{\theta_{g}^{*}\theta_{g}}^{i}=D_{\theta_{g}\theta_{g}^{*}}^{i}$. These are illustrated in Figure \ref{Fig:ParFree}:
+For the even case break the space into two complimentary pieces in the following way:
+\begin{eqnarray*}
+A_{i,0}:= \lbrace \theta_{g}^{n}(x_{i}) |n \equiv 0 \mbox{ mod } 2 \rbrace \\
+A_{i,1}:= \lbrace \theta_{g}^{n}(x_{i}) |n \equiv 1 \mbox{ mod } 2 \rbrace
+\end{eqnarray*}
+and let $A_{j}=\sqcup_{i|n_{i} \in \lbrace even \rbrace}A_{i,j}$. We assume for a contradiction that $\omega=\theta_{g}(\omega)$ and then observe that $g$ permutes $A_{0}$ to $A_{1}$, so if, without loss of generality, $A_{0} \in \omega$ we can deduce that $\theta_{g}(A_{0})=A_{1}=A_{0}^{c}\in \omega$, which is a contradiction. 
+
+The odd case is similar only we break each $\mathcal{A}_{g}^{i}$ represented into three pieces:
+\begin{eqnarray*}
+B_{i,0} & := & \lbrace \theta_{g}^{n}(x_{i}) |n \equiv 0 \mbox{ mod } 2 \mbox{ and } n\not = n_{i}-1 \rbrace \\
+B_{i,1}& := & \lbrace \theta_{g}^{n}(x_{i}) |n \equiv 1 \mbox{ mod } 2 \rbrace \\
+B_{i,2}& := & \lbrace \theta_{g}^{n_{i}-1}(x_{i}) \rbrace
+\end{eqnarray*}
+$B_{i,2}$ is necessary here as the action of $\theta_{g}$ sends that point to $B_{i,0}$, which would otherwise have been a map from $B_{i,0}$ to itself. We build the corresponding $B_{j}=\sqcup_{\lbrace i | n_{i} \in \lbrace odd \rbrace \rbrace} B_{i,j}$. Again let $\theta_{g}(\omega)=\omega$ and observe that $B_{j} \in \omega$ for some $j$. Acting by $\theta_{g}$ gives: $\theta_{g}(B_{j})\in \theta_{g}(\omega)$, hence $\theta_{g}(B_{j})\in \omega$. Considering $j$ mod $3$: $B_{j}.g\subset B_{j+1}\sqcup B_{j+2}= B_{j}^{c}$ which again gives a contradiction.
+\end{proof}
+\end{proof}
+
+\begin{lemma}\label{Lem:ParFree}
+The partial action of $F_{k}$ defined above extends to $\beta X$ and is free on the boundary $\partial \beta X$.
+\end{lemma}
+\begin{proof}
+For each $g \in F_{k}$ the domain of $\theta_{g}$ breaks into three pieces. The first piece, index denoted $I_{0}$, consists of all the $D_{g^{*}g}^{i}$ such that $D_{\theta_{g}^{*}\theta_{g}}^{i} \cap D_{\theta_{g}\theta_{g}^{*}}^{i}$ is empty; the second, indexed by $I_{1}$, consists of all the $D_{\theta_{g}^{*}\theta_{g}}^{i}$ such that $D_{\theta_{g}^{*}\theta_{g}}^{i}\cap D_{\theta_{g}\theta_{g}^{*}}^{i}$ is not empty but $D_{\theta_{g}^{*}\theta_{g}}^{i}$ is not contained in $D_{\theta_{g}\theta_{g}^{*}}^{i}$; and the third, denoted by $I_{2}$ is all the $D^{i}_{\theta_{g}^{*}\theta_{g}}$ such that $D_{\theta_{g}^{*}\theta_{g}}^{i}=D_{\theta_{g}\theta_{g}^{*}}^{i}$.
+
 \begin{figure}[h]\label{Fig:ParFree}
 %Def of Circles needed
 \def\firstcircle{(-8.5,0) circle (1cm)}
@@ -873,36 +983,22 @@ The proof breaks into 3 cases relying as always on the ``ultra'' property. We br
 \end{tikzpicture}
 \caption{The three cases for Lemma \ref{Lem:ParFree}}
 \end{figure}
-\\
-We have that $D_{g^{*}g}$ is:
-\begin{equation*}
-D_{g^{*}g} = (\bigsqcup_{i \in I_{0}} D^{i}_{\theta_{g}^{*}\theta_{g}}) \sqcup (\bigsqcup_{i \in I_{1}} D^{i}_{\theta_{g}^{*}\theta_{g}}) \sqcup (\bigsqcup_{i \in I_{2}} D^{i}_{\theta_{g}^{*}\theta_{g}})
-\end{equation*}
-So any non-principal ultrafilter $\omega \in \partial \beta X$ will pick between one of the three pieces, so it is enough to show that the action must be free given any choice. 
 
-In case $i)$ we have that $\omega$ picks $\bigsqcup_{i \in I_{0}}D^{i}_{\theta_{g}^{*}\theta_{g}}$, hence $\theta(g)(\omega)$ picks $\bigsqcup_{i \in I_{0}}D^{i}_{\theta_{g}\theta_{g}^{*}}$, which is contained in the compliment of $\bigsqcup_{i \in I_{0}}D^{i}_{\theta_{g}^{*}\theta_{g}}$ by construction. Whence $\theta(g)(\omega) \not= \omega$ in this case.
+Case i) is clear. In Case iii) we observe that $A_{3}:= \sqcup_{i \in I_{3}} D_{\theta_{g}^{*}\theta_{g}}^{i}$ is a stable core. By Lemma \ref{Lem:StabCore}, $\omega\not = \omega_{g}(\omega)$ if $A_{3} \in \omega$. This leaves case ii).
 
-In case $iii)$ every element of the domain $\bigsqcup_{i \in I_{2}}D^{i}_{\theta_{g}^{*}\theta_{g}}$ is also in the image $\bigsqcup_{i \in I_{2}}D^{i}_{\theta_{g}\theta_{g}^{*}}$, whence we can conclude that it is possible to apply any power of $\theta(g)$ to this set. This allows us now to run the argument present in the proof of Lemma \ref{Lem:MT3}.
-
-\begin{comment}
-\begin{figure}[h]\label{Fig:ParFree}
-\includegraphics[scale=0.5]{Diagrams/Diagram1.png}
-\caption{Case $ii)$ for Lemma \ref{Lem:ParFree}}
-\end{figure}
-\end{comment}
-
-This leaves case $ii)$. Let $A_{0,i}:= D_{\theta_{g}^{*}\theta_{g}}^{i}\setminus D_{\theta_{g}^{*}\theta_{g}}^{i}\cap D_{\theta_{g}\theta_{g}^{*}}^{i} $ and $A_{1}=D_{\theta_{g}^{*}\theta_{g}}^{i}\cap D_{\theta_{g}\theta_{g}^{*}}^{i}$. Then set $A_{j}=\bigsqcup_{i \in I_{2}}A_{j,i}$ and let $\omega \in \partial \beta X$. If $A_{0} \in \omega$ then $\theta(g)(A_{0})  \subset A_{0}^{c}$, which implies that $\theta(g)(A_{0}) \not \in \theta(g)(\omega)$. 
+Let $A_{0,i}:= D_{\theta_{g}^{*}\theta_{g}}^{i}\setminus D_{\theta_{g}^{*}\theta_{g}}^{i}\cap D_{\theta_{g}\theta_{g}^{*}}^{i} $ and $A_{1}=D_{\theta_{g}^{*}\theta_{g}}^{i}\cap D_{\theta_{g}\theta_{g}^{*}}^{i}$. Then set $A_{j}=\bigsqcup_{i \in I_{2}}A_{j,i}$ and let $\omega \in \partial \beta X$. If $A_{0} \in \omega$ then $\theta(g)(A_{0})  \subset A_{0}^{c}$, which implies that $\theta(g)(A_{0}) \not \in \theta(g)(\omega)$. 
 
 It remains to deal with $A_{1} \in \omega$. Assume for a contradiction that $\theta(g)(\omega) = \omega$. Then $\theta(g)(A_{1})\cap A_{1} \in \omega$, and we can apply $\theta(g)$ again - denote by $A_{1}^{m}=A_{1} \cap \theta(g)(A_{1}) \cap ... \cap \theta(g)^{m}(A_{1})$. For each $i \in I_{2}$ there exists a power $m_{i}$ of $\theta(g)$ such that this intersection stabilises in $X_{i}$, that is $A_{1,i}^{m_{i}}=A_{1,i}^{m_{i}+1}$. 
 
-Let $\mathcal{A} = \bigcap_{m\in \mathbb{N}} A_{1}^{m}$. This set has the property that $\theta_{g}(\mathcal{A})=\mathcal{A}$, and we call this the \textit{stable core} of the partial action. In this set the concept of orbit is well defined, and hence the argument from Lemma \ref{Lem:MT3} will work without change, replacing the entire space by $\mathcal{A}$. The technicality here is that $\mathcal{A}$ may not be an element of $\omega$. It has an infinite compliment $\mathcal{A}^{c}$, so ultrafilters may fight over this. In particular we can remark that by the assumption that $\omega$ is fixed by $g$ every finite intersection $\bigcap_{m=0}^{k} A_{1}^{m}=A_{1}^{k}$ is an element of $\omega$. 
+Let $\mathcal{A} = \bigcap_{m\in \mathbb{N}} A_{1}^{m}$. This is a stable core. If $\mathcal{A} \in \omega$ then Lemma \ref{Lem:StabCore} gives $\omega \not = \theta_{g}(\omega)$.
 
 So the last case to consider is that $\mathcal{A}^{c}\in \omega$. It suffices to work in $A_{1}$, so let $B_{1}=\mathcal{A}^{c}\cup A_{1}$ and then define $B_{i} = \theta_{g}(B_{i-1})\cap B_{1}$. It follows from the construction of $\mathcal{A}$ that every element $x \in B_{1}$ has an associated smallest natural number $n_{x}$ such that $\theta_{g}^{n_{x}}(x) \not \in B_{n_{x}}$. It is clear from the definition that $B_{i+1} \subset B_{i}$ for every $i$. Lastly, define $B^{-1}_{i+1}:=\theta_{g}^{-1}(B_{i+1}) \subset B_{i}$.  From this we consider the decomposition of $B_{i}$ into two disjoint infinite pieces:
 \begin{eqnarray*}
 B^{\pm 1}_{i,even}:= \lbrace x \in B_{i}^{\pm 1} | n_{x} \equiv 0 \mbox{ mod } 2 \rbrace \\
 B^{\pm 1}_{i,odd}:= \lbrace x \in B_{i}^{\pm 1} | n_{x} \equiv 1 \mbox{ mod } 2 \rbrace.
 \end{eqnarray*} 
-$\omega$ must choose precisely one of these two pieces for each $i$. Assume without loss that $B_{1,even} \in \omega$. It is clear that $B^{-1}_{2} \cap B_{1,even} = B_{2,even}^{-1} \in \omega$ is sent, by $\theta_{g}$, to $B_{2,odd}$ and so $B_{2,odd} \in \theta_{g}(\omega)$. From the assumption that $\theta_{g}(\omega)=\omega$, we can conclude that $B_{2,odd} \in  \omega$. As ultrafilters are upwardly closed, we know also that $B_{1,odd} \in \omega$, which is a contradiction. \end{proof}
+$\omega$ must choose precisely one of these two pieces for each $i$. Assume without loss that $B_{1,even} \in \omega$. It is clear that $B^{-1}_{2} \cap B_{1,even} = B_{2,even}^{-1} \in \omega$ is sent, by $\theta_{g}$, to $B_{2,odd}$ and so $B_{2,odd} \in \theta_{g}(\omega)$. From the assumption that $\theta_{g}(\omega)=\omega$, we can conclude that $B_{2,odd} \in  \omega$. As ultrafilters are upwardly closed, we know also that $B_{1,odd} \in \omega$, which is a contradiction. 
+\end{proof}
 
 This freeness gives us a tool to understand the structure of $S_{\inf}$.
 
@@ -941,7 +1037,8 @@ Appealing to the machinery we developed earlier in Propostions \ref{Prop:Strongl
 The inverse monoid $S_{inf}$ is strongly 0-F-inverse.
 \end{corollary}
 
-We now have enough tools to prove the general version of Theorems \ref{Thm:MR1} and \ref{Thm:MR2}.
+\subsection{Proof of the main result.}
+We now have enough tools to prove the following result:
 \begin{theorem}
 Let $\lbrace X_{i} \rbrace$ be a sequence of finite graphs of large girth and vertex degree uniformly bounded above by $2k$ and let $X$ be the corresponding space of graphs. Then the boundary coarse Baum-Connes conjecture holds for $X$. 
 \end{theorem}
