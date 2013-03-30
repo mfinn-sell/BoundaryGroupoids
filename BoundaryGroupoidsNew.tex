@@ -112,8 +112,26 @@ The first author wishes to thank the second author, his supervisor, for his unen
 %Change the theorem labellings
 \numberwithin{theorem}{section}
 
-\subsection{Groupoids, expanders and the coarse Baum-Connes conjecture.}
-A \textit{groupoid} is a small category in which every arrow is invertible, we do not unpack this here but instead offer references \cite{}. A groupoid is \textit{principal} if $(r,s): \G \rightarrow \G^{(0)} \times \G^{(0)}$ is injective and \textit{transitive} if $(r,s)$ is surjective. A groupoid $\G$ is a \textit{topological groupoid} if both $\G$ and $\G^{(0)}$ are topological spaces, and the maps $r,s, ^{-1}$ and the composition are all continuous. A Hausdorff, locally compact topological groupoid $\G$ is \textit{proper} if $(r,s)$ is a proper map and \textit{\'etale} or \textit{r-discrete} if the map $r$ is a local homeomorphism. When $\G$ is \'etale, $s$ and the product are also local homeomorphisms, and $\G^{(0)}$ is an open subset of $\G$.
+\subsection{Groupoids, expanders and the coarse Baum-Connes conjecture.}\label{Sect:GO}
+A \textit{groupoid} is a small category in which every arrow is invertible:
+\begin{definition}\label{def:grpoid2}
+A \textit{groupoid} is a set $\G$ equipped with the following information:
+\begin{enumerate}
+\item A subset $\G^{(0)}$ consisting of the objects of $\G$, denote the inclusion map by $i: \G^{(0)}\hookrightarrow \G$. 
+\item Two maps, $r$ and $s: \G  \rightarrow \G^{(0)}$ such that $r\circ i = s \circ i = Id$ 
+\item An involution map $^{-1}:\G \rightarrow \G$ such that $s(g)=r(g^{-1})$
+\item A partial product $\G^{(2)} \rightarrow \G$ denoted $(g,h) \mapsto gh$, with $\G^{(2)}=\lbrace (g,h) \in \G \times \G | s(g)=r(h) \rbrace\subseteq \G\times \G$ being the set of composable pairs.
+\end{enumerate}
+Moreover we ask the following:
+\begin{itemize}
+\item The product is associative where it is defined in the sense that for any pairs: 
+\begin{equation*}
+(g,h),(h,k)\in \G^{(2)} \mbox{ we have }(gh)k \mbox{ and } g(hk) \mbox{ defined and equal}.
+\end{equation*}
+\item For all $g \in \G$ we have $r(g)g=gs(g)=g$.
+\end{itemize}
+\end{definition}
+A groupoid is \textit{principal} if $(r,s): \G \rightarrow \G^{(0)} \times \G^{(0)}$ is injective and \textit{transitive} if $(r,s)$ is surjective. A groupoid $\G$ is a \textit{topological groupoid} if both $\G$ and $\G^{(0)}$ are topological spaces, and the maps $r,s, ^{-1}$ and the composition are all continuous. A Hausdorff, locally compact topological groupoid $\G$ is \textit{proper} if $(r,s)$ is a proper map and \textit{\'etale} or \textit{r-discrete} if the map $r$ is a local homeomorphism. When $\G$ is \'etale, $s$ and the product are also local homeomorphisms, and $\G^{(0)}$ is an open subset of $\G$.
 
 \begin{definition}
 Let $\G$ be a groupoid and let $x,y \in \G^{(0)}$ and $A,B \subset \G^{(0)}$. Set:
@@ -188,7 +206,7 @@ But the key point is that it is an element of $C^{*}X$ (in fact an element of $\
 \end{remark}
 The following notion is due to Guoliang Yu (unpublished):
 
-\begin{definition}
+\begin{definition}\label{Def:Ghost}
 An operator $T \in C^{*}X$ is a \textit{ghost operator} if $\forall \epsilon >0$ there exists a bounded subset $B \subset X\times X$ such that the norm: $\Vert T_{xy} \Vert \leq \epsilon$ for all $(x,y) \in (X\times X) \setminus B$.
 \end{definition}
 
@@ -234,7 +252,7 @@ We observe that whilst the sequence:
 0 \ar[r] & C_{r}^{*}(G_{F^{c}}) \ar[r]^{\alpha}& C_{r}^{*}(G) \ar[r]^{q} & C_{r}^{*}(G_{F}) \ar[r] & 0
 }
 \end{equation*}
-may fail to be exact in the middle term the maps $\alpha$ and $q$ both exist and we can see that the map $q$ is also surjective by considering the following diagram.
+may fail to be exact in the middle term the maps $\alpha$ and $q$ both exist and the map $q$ is surjective by considering the following diagram.
 \begin{equation*}
 \xymatrix{C^{*}_{max}(G) \ar@{->>}[r] \ar@{->>}[d] & C^{*}_{max}(G_{F}) \ar@{->>}[d]\\
 C^{*}_{r}(G)\ar@{->}[r] &   C^{*}_{r}(G_{F})
@@ -248,7 +266,7 @@ It is also clear that the image of $\alpha$ is contained in the kernel of $q$, w
 }
 \end{equation*}
 where the rows here are exact. 
-As in \cite{MR1911663} we would now choose suitable groupoids $G$ and subsets $F$ of the unit space $G^{(0)}$ that allow us to use the above sequence to analyse the Baum-Connes conjecture for the groupoid $G$. We have in mind the suitation that $G=G(X)$, the coarse groupoid associated to some uniformly discrete bounded geometry metric space $X$.
+As in \cite{MR1911663} we now consider $G=G(X)$, the coarse groupoid associated to some uniformly discrete bounded geometry metric space $X$.
 
 \subsection{The Coarse Groupoid Conjecture}
 Let $X$ be a uniformly discrete bounded geometry metric space. From what was described above we can associate to each closed saturated subset $F$ of the unit space space $\beta X$ a long exact sequence in K-theory. We consider the obvious closed saturated subset: $\partial \beta X \subset G(X)^{(0)}$. This gives us the following commutative diagram (omitting coefficients):
@@ -269,7 +287,7 @@ Let $X$ be a unformly discrete bounded geometry metric space. Then the assembly 
 is an isomorphism.
 \end{conj}
 
-As mentioned in the introduction the intuitive view of this is supposed to be ``quotient by the ghost ideal and consider the K-theory". We confirm the technical approach meets the intuitive one; the kernel $I$ is precisely the ghost ideal $I_{G}$. In order to prove this we need some technology of \cite{MR1911663}:
+We confirm that the kernel $I$ is the ghost ideal $I_{G}$. In order to prove this we need some technology of \cite{MR1911663}:
 
 \begin{lemma}\label{Lem:Lemma9}\cite[Lemma 9]{MR1911663}
 If an \'etale topological groupoid $\G$ acts on a $C^{*}$-algebra A, then the map $C_{c}(\G,A) \rightarrow C_{0}(\G,A)$ extends to an injection (functorial in A) from $A\rtimes_{r} \G$ to $C_{0}(\G,A)$. \qed
@@ -285,7 +303,7 @@ C_{0}(\G ,A)\ar@{->}[r] &   C_{0}(\G ,B)
 \end{remark}
 
 \begin{remark}
-The map provided is not a $*-$homomorphism as it takes convolution in $A\rtimes_{r} \G$ to pointwise multiplication in $C_{0}(\G,A)$. However it suffices for applications as the map is continuous.
+The map provided is not a $*-$homomorphism as it takes convolution in $A\rtimes_{r} \G$ to point wise multiplication in $C_{0}(\G,A)$. However it suffices for applications as the map is continuous.
 \end{remark}
 
 \begin{proposition}
@@ -306,29 +324,26 @@ The downward maps being injective implies that the kernel is precisely the kerne
 \begin{equation*}
 q:C^{*}X=\ell^{\infty}(X,\mathcal{K})\rtimes_{r}G(X) \rightarrow C_{0}(G(X),l^{\infty}(X,\mathcal{K})/C_{0}(X,\mathcal{K})).
 \end{equation*}
-We can compute this kernel:
+Using the definitions we can compute this kernel:
 \begin{eqnarray*}
-I & = & \lbrace f \in C^{*}X | i(q(f))=0\rbrace \\
-& = & \lbrace f \in C^{*}X | q^{'}(i^{'}(f))=0 \rbrace \\
-& =&  \lbrace f | i^{'}(f) \in C_{0}(G(X),C_{0}(X,\mathcal{K}))\rbrace \\
+I & =&  \lbrace f | i^{'}(f) \in C_{0}(G(X),C_{0}(X,\mathcal{K}))\rbrace \\
 & = & \lbrace f | \forall \epsilon > 0 \exists K \subset X \times X \mbox{ compact }: \vert f_{xy} \vert \leq \epsilon \forall (x,y) \in X\times X \setminus K \rbrace.
 \end{eqnarray*}
-As $X$ is uniformly discrete with bounded geometry and $X \times X$ is equipped with the product topology we can replace compact by bounded. So:
-\begin{equation*}
-I = \lbrace f | \forall \epsilon > 0 \exists K \subset X \times X \mbox{ bounded }: \vert f_{xy} \vert \leq \epsilon \mbox{ } \forall (x,y) \in X\times X \setminus K \rbrace  =  I_{G}
-\end{equation*}
+As $X$ is uniformly discrete with bounded geometry and $X \times X$ is equipped with the product topology we can replace compact by bounded, which using Definition \ref{Def:Ghost} is the ghost ideal $I_{G}$.
 \end{proof}
-Recall that the assembly map $\mu_{I_{G}}$ associated to the open saturated subset $X$ is given by the composition of $\mu_{X \times X}: K^{top}_{*}(X\times X) \rightarrow K_{*}(\mathcal{K}(\ell^{2}(X))$ with the inclusion $i_{*}:K_{*}(\mathcal{K}(\ell^{2}(X)) \rightarrow K_{*}(I_{G})$. So to understand how the assembly map $\mu_{I_{G}}$ behaves, it is enough to consider the behavour of the inclusion $i_{*}$ as the map $\mu_{X \times X}$ is an isomorphism.
+Recall that the assembly map $\mu_{I_{G}}$ associated to the open saturated subset $X$ is given by the composition of $\mu_{X \times X}: K^{top}_{*}(X\times X) \rightarrow K_{*}(\mathcal{K}(\ell^{2}(X))$ with the inclusion $i_{*}:K_{*}(\mathcal{K}(\ell^{2}(X)) \rightarrow K_{*}(I_{G})$. So to understand how the assembly map $\mu_{I_{G}}$ behaves, it is enough to consider the behaviour of the inclusion $i_{*}$ as the map $\mu_{X \times X}$ is an isomorphism.
 
 \begin{proposition}\label{Prop:Ghost}
-Let $\lbrace X_{i} \rbrace_{i\in \mathbb{N}}$ be an expander sequence. Then:
-\begin{equation*}
-K_{*}^{top}(X\times X)\cong K_{*}(\mathcal{K}(\ell^{2}(X)) \rightarrow K_{*}(I_{G})
-\end{equation*}
-is not surjective but is injective.
+Let $\lbrace X_{i} \rbrace_{i\in \mathbb{N}}$ be a sequence of finite graphs. The the following hold for the space of graphs $X$:
+\begin{enumerate}
+\item The induced map $i_{*}:K_{*}(\mathcal{K}(\ell^{2}(X,\mathcal{K})) \rightarrow K_{*}(C^{*}X)$ is injective.
+\item If $X$ is an expander then $K_{*}^{top}(X\times X)\cong K_{*}(\mathcal{K}(\ell^{2}(X)) \rightarrow K_{*}(I_{G})$.
+\end{enumerate}
 \end{proposition}
 \begin{proof}
-The proof is an adaption of a well known argument and relies on considering the algebra $C^{*}X_{\infty}$, which is the Roe algebra of the space of graphs with the disjoint union 'metric', and the following commutative diagram:
+We prove (2), which is an adaptation of a well-known argument.
+
+Consider the algebra $C^{*}X_{\infty}$; the Roe algebra of the space of graphs with the disjoint union 'metric'. The following diagram commutes:
 \begin{equation*}
 \xymatrix{\bigoplus_{i\in\mathbb{N}}\mathcal{K}(\ell^{2}(X_{i}))\ar@{=}[r] &\bigoplus_{i\in \mathbb{N}}C^{*}X_{i} \ar@{^{(}->}[r]\ar@{^{(}->}[dr] & C^{*}X_{\infty} \ar@{->>}[r]^{q} \ar@{^{(}->}[d] & \frac{C^{*}X_{\infty}}{\bigoplus_{i\in\mathbb{N}}C^{*}X_{i}}\ar@{^{(}->}[d]^{i}\\
 & & \prod_{i\in \mathbb{N}}C^{*}X_{i} \ar@{->>}[r]& \frac{\prod_{i\in\mathbb{N}} C^{*}(X_{i})}{\bigoplus_{i\in\mathbb{N}}C^{*}X_{i}}
@@ -338,11 +353,9 @@ We remark that we can conclude $C^{*}X = C^{*}X_{\infty}+\mathcal{K}$. Let $I_{G
 \begin{equation*}
 \frac{I_{G}}{\mathcal{K}(\ell^{2}(X))}\cong \frac{I_{G,\infty}}{\bigoplus_{i\in\mathbb{N}}\mathcal{K}(\ell^{2}(X_{i}))}
 \end{equation*}
-We define the map $d$ to be the compositions of $q$ and the inclusion $i$. The map $d$ induces a map on $K$-theory that is used to detect non-triviality of certain classes of projections - namely those associated to expander sequences \cite[Section 6]{explg1}. In particular we observe that $d$ restricts to a map:
-\begin{equation*}
-d|_{G}:I_{G,\infty} \rightarrow \frac{\prod_{i\in\mathbb{N}} C^{*}(X_{i})}{\bigoplus_{i\in\mathbb{N}}C^{*}X_{i}}
-\end{equation*}
-In particular: if $d|_{G,*}([p])\not=0$ then $q_{*}([p])\not=0$. Let $p$ be the ghost projection associated to Laplacian $\Delta$ of the $X_{i}s$, defined from the Laplacians $\Delta_{i}$ in remark \ref{Rem:Ghost}. This lies in $C^{*}X$ as $X$ is an expander, and is clearly an element of $C^{*}X_{\infty}$ as it is defined piecewise. $p$ evalutates to a non-trivial class under $d_{G,*}$ so we know that $K_{0}(\frac{I_{G,\infty}}{\bigoplus_{i\in\mathbb{N}}C^{*}X_{i}})\not= 0$. From here we see that $K_{0}(\mathcal{K}) \rightarrow K_{0}(I_{G})$ is not surjective and so $\mu_{I_{G}}$ is not surjective either.
+We define the map $d$ to be the compositions of $q$ and the inclusion $i$. The map $d$ induces a map on K-theory that is used to detect non-triviality of ghosts. $d$ restricts to $I_{G.\infty}$ and if $d|_{G,*}([p])\not=0$ then $q_{*}([p])\not=0$.
+
+Let $p$ be the ghost projection associated to Laplacian $\Delta$ of the $X_{i}s$ defined in Remark \ref{Rem:Ghost}. This lies in $C^{*}X$ as $X$ is an expander, and is clearly an element of $C^{*}X_{\infty}$ as it is defined piecewise. $p$ evalutates to a non-trivial class under $d_{G,*}$ so we know that $K_{0}(\frac{I_{G,\infty}}{\bigoplus_{i\in\mathbb{N}}C^{*}X_{i}})\not= 0$. From here we see that $K_{0}(\mathcal{K}) \rightarrow K_{0}(I_{G})$ is not surjective and so $\mu_{I_{G}}$ is not surjective either.
 
 To see injectivity it suffices to show that $K_{1}(I_{G})\rightarrow K_{0}(\mathcal{K})$ is the zero map. Consider the following diagram:
 \begin{equation*}
@@ -355,51 +368,16 @@ Given that the bottom long arrow defines an injection on K-theory we can deduce 
 \xymatrix{K_{1}(\frac{I_{G,\infty}}{\bigoplus_{i\in\mathbb{N}}M_{i}})\ar@{->}[r]^{0}\ar@{=}[d]& K_{0}(\bigoplus_{i\in \mathbb{N}}M_{i}) \ar@{^{(}->}[r]\ar@{->>}[d] & K_{0}(I_{G,\infty}) \ar@{->>}[r] \ar@{->}[d] & K_{0}(\frac{I_{G,\infty}}{\bigoplus_{i\in\mathbb{N}}M_{i}})\ar@{=}[d]\\
 K_{1}(\frac{I_{G}}{\mathcal{K}})\ar@{->}[r]& K_{0}(\mathcal{K}) \ar@{->}[r] & K_{0}(I_{G}) \ar@{->>}[r]  & K_{0}(\frac{I_{G}}{\mathcal{K}})}
 \end{equation*}
-To finish the proof take an $x \in K_{0}(\mathcal{K})$ that goes to $0 \in K_{0}(I_{G})$. Then it comes from a $y \in K_{1}(\frac{I_{G}}{\mathcal{K}})$ as the rows are exact. Hence there is a $y^{'} \in K_{1}(\frac{I_{G,\infty}}{\bigoplus_{i\in\mathbb{N}}M_{i}})$ that by the commutativity of the diagram maps, via the zero map, to $x$.
+This completes the proof via a short diagram chase. The proof of (1) is similar to the injectivity case above, replacing ghost ideals by Roe algebras everywhere.
 \end{proof}
 
 The boundary coarse Baum-Connes conjecture has applications to the coarse Baum-Connes conjecture for spaces of graphs:
 
 \begin{proposition}\label{Prop:Cor}
-If $X$ satisfies the boundary coarse Baum-Connes conjecture then the following hold:
+Let $X$ be a space of graphs arising from a sequence of finite graphs $\lbrace X_{i} \rbrace$. If  boundary coarse Baum-Connes conjecture is injective then the following hold:
 \begin{enumerate}
 \item The coarse Baum-Connes assembly map for $X$ is injective.
 \item If $X$ is an expander then the coarse Baum-Connes assembly map for $X$ fails to be surjective.
-\end{enumerate}
-\end{proposition}
-\begin{proof}
-Consider the long exact sequences:
-$$
-\xymatrix@=0.7em{
-K_{1}(C^{*}_{r}(G(X)|_{\partial\beta X}) \ar[r] & K_{0}(I_{G}) \ar[r]& K_{0}(C^{*}_{r}(G(X))) \ar[r]& K_{0}(C^{*}_{r}(G(X)|_{\partial\beta X})\ar[r] & K_{1}(I_{G}) \\
- K_{1}^{top}(G(X)|_{\partial\beta X}) \ar[r] \ar[u]^{\ucong}& K_{0}^{top}(X \times X) \ar[r]\ar[u]^{f_{1}}& K_{0}^{top}(G(X)) \ar[r]\ar[u]^{f_{2}}& K_{0}^{top}(G(X)|_{\partial\beta X}) \ar[r]\ar[u]^{\ucong}& K_{1}^{top}(X \times X)\ar[u]^{f_{3}} 
-}
-$$
-We remark here that $f_{1}$ is not surjective and that $f_{1}$ and $f_{3}$ are injective by Proposition \ref{Prop:Ghost}. The assumptions and these remarks, coupled with the Five Lemma, conclude the proof.
-\end{proof}
-
-In fact, the previous result can be improved by considering how the K-theory of the compact operators sits inside the K-theory of the Roe algebra.
-
-\begin{proposition}\label{Prop:subCool}
-$K_{0}(\mathcal{K}) \hookrightarrow K_{0}(C^{*}X)$.
-\end{proposition}
-\begin{proof}
-As in the proof of Proposition \ref{Prop:Ghost} we can just work with the subalgebras $\bigoplus_{i}M_{n_{i}}$ and $C^{*}X_{\infty}$. We observe that we have a similar diagram:
-\begin{equation*}
-\xymatrix{\bigoplus_{i \in \mathbb{N}} M_{i} \ar@{->}[r]\ar@{=}[d]  &  C^{*}X_{\infty} \ar@{->}[r]& \prod_{i\in \mathbb{N}}M_{i}\ar@{=}[d]\\
-\bigoplus_{i \in \mathbb{N}} M_{i}\ar@{^{(}->}[rr] &  & \prod_{i\in \mathbb{N}}M_{i}
-}
-\end{equation*}
-As the long bottom arrow is certainly injective on K-theory we can see that the arrow into $C^{*}X_{\infty}$ is also injective on K-theory. From this we can deduce, using a similar argument to Proposition \ref{Prop:Ghost}, that this map actually induces an injection on K-theory between the compact operators $\mathcal{K}$ and $C^{*}X$.
-\end{proof}
-
-Combining this proposition with the fact that the assembly map $\mu_{I_{G}}$ factors through the standard assembly map $\mu_{X\times X}$ we can conclude:
-
-\begin{proposition}\label{Prop:Cool}
-Let $X$ be a space of graphs for some sequence $\lbrace X_{i} \rbrace$ and assume $\mu_{bdry}$ to be injective. Then:
-\begin{enumerate}
-\item The coarse Baum-Connes assembly map $\mu$ is injective.
-\item If $X$ is an expander then the coarse Baum-Connes assembly map fails to be surjective.
 \end{enumerate}
 \end{proposition}
 \begin{proof}
@@ -410,7 +388,7 @@ $$
 \ar[r] & K_{1}^{top}(G(X)|_{\partial\beta X}) \ar[r] \ar@{^{(}->}[u]& \mathbb{Z} \ar@{^{(}->}[ur] \ar[r]\ar@{^{(}->}[u]& K_{0}^{top}(G(X)) \ar[r]\ar[u]^{\mu}& K_{0}^{top}(G(X)|_{\partial\beta X}) \ar[r]\ar@{^{(}->}[u]& 0\ar[u]^{0} \ar[r] & 
 }
 $$
-We prove (1) by considering an element $x \in K_{0}^{top}(G(X))$ such that $\mu(x)=0$. Then $x$ maps to $0\in K_{0}^{top}(G(X)|_{\partial\beta X})$ and so comes from an element $y \in \mathbb{Z}$. Each square commutes hence $y$ maps to $0 \in K_{0}(C^{*}_{r}(G(X))$. As the composition up and left (as indicated in the diagram) is injective by Proposition \ref{Prop:subCool}, we know that $y \in \mathbb{Z}$  is in fact $0 \in \mathbb{Z}$. Hence $x=0$.
+We prove (1) by considering an element $x \in K_{0}^{top}(G(X))$ such that $\mu(x)=0$. Then $x$ maps to $0\in K_{0}^{top}(G(X)|_{\partial\beta X})$ and so comes from an element $y \in \mathbb{Z}$. Each square commutes hence $y$ maps to $0 \in K_{0}(C^{*}_{r}(G(X))$. As the composition up and left (as indicated in the diagram) is injective by Proposition \ref{Prop:Ghost}, we know that $y \in \mathbb{Z}$  is in fact $0 \in \mathbb{Z}$. Hence $x=0$.
 
 To see (2) we use Lemma \ref{Lem:Lemma1} part 1 or directly: Take any non-compact ghost projection $p \in K_{0}(I_{G})$, which does not lie in the image of $\mathbb{Z}$. Push this element to $q \in K_{0}(C^{*}_{r}(G(X))$. Assume for a contradiction that $\mu$ is surjective. Then there is an element $x \in \mathbb{Z}$ that maps to $q$, and so $d_{*}(q)=0$, as the image of compact operators lies in the kernel of the map $d_{*}$. However, we know that $d_{*}(q)=d_{*}(p)$ is certainly non-zero.
 \end{proof}
@@ -472,7 +450,7 @@ We remark that a group is said to have the \textit{Strong Baum-Connes property} 
 Let $\Gamma$ be a residually finite group. If $\Gamma$ satisfies the strong Baum-Connes conjecture, then the boundary coarse Baum-Connes conjecture holds for any box space of $\Gamma$. If $\Gamma$ is coarsely embeddable into Hilbert space then the boundary coarse Baum-Connes conjecture is injective. \qed
 \end{theorem}
 \begin{proof}
-We can use Proposition \ref{Prop:Crit} to decompose our groupoid $G(X)|_{\partial \beta X}$ as $\partial\beta X \rtimes \Gamma$ for any generalised box space $X$ of $\Gamma$. The first part of the theorem follows from the Strong Baum-Connes property for $\Gamma$ and second follows from the descent argumen, Theorem 6.1 from \cite{MR1905840}. 
+We can use Proposition \ref{Prop:Crit} to decompose our groupoid $G(X)|_{\partial \beta X}$ as $\partial\beta X \rtimes \Gamma$ for any generalised box space $X$ of $\Gamma$. The first part of the theorem follows from the Strong Baum-Connes property for $\Gamma$ and second follows from the descent argument, Theorem 6.1 from \cite{MR1905840}. 
 \end{proof}
 
 \begin{corollary}
@@ -483,7 +461,7 @@ Let $\Gamma$ be a residually finite uniformly embeddable group and let $X$ be a 
 \end{enumerate}
 \end{corollary}
 \begin{proof}
-Proof follows from Theorem \ref{Thm:GBS} and Proposition \ref{Prop:Cool}.
+Proof follows from Theorem \ref{Thm:GBS} and Proposition \ref{Prop:Ghost}.
 \end{proof}
 This includes property (T) groups such as $SL_{3}(\mathbb{Z})$, and hence tells us something for small girth expanders. Using the recent results of Sako on the relationship between property A and the operator norm localization property for uniformly discrete bounded geometry spaces \cite{AONL-2012} we get a simpler proof of \cite[Theorem 7.1]{MR2419930}. Given that any countable subgroup of $GL(n,K)$ is exact for any field $K$ \cite{MR2217050} we can also conclude \cite[Theorem 5.3]{MR2764895}.
 
@@ -908,7 +886,7 @@ We say a subset $\mathcal{A}_{g} \subset X$ is a \textit{stable core} for the el
 Recall that for each subset $A$ of $X$, $\widehat{D}_{A}:=\lbrace \omega \in \partial \beta X | A \in \omega \rbrace$.
 
 \begin{lemma}\label{Lem:StabCore}
-Let $\theta: F_K} \rightarrow I_{b}(X)$ be the partial action defined above. If $\mathcal{A}_{g}$ is a stable core then for any $\omega \in \widehat{D}_{\mathcal{A}_{g}}$ $\omega \not = \theta_{g}(\omega)$.
+Let $\theta: F_{k} \rightarrow I_{b}(X)$ be the partial action defined above. If $\mathcal{A}_{g}$ is a stable core then for any $\omega \in \widehat{D}_{\mathcal{A}_{g}}$ $\omega \not = \theta_{g}(\omega)$.
 \end{lemma}
 \begin{proof}
 Take $x_{i}\in \mathcal{A}^{i}_{g}$. Then let $n_{i}$ the the smallest integer such that $\theta_{g}(x_{i})=x_{i}$. We observe also that there are two cases as for any $\omega \in D_{\mathcal{A}_{g}}$ as we know that the pieces: 
@@ -918,7 +896,7 @@ Take $x_{i}\in \mathcal{A}^{i}_{g}$. Then let $n_{i}$ the the smallest integer s
 \end{eqnarray*}
 are mutually complimentary and union to the entire of $\mathcal{A}_{g}^{i}$, hence $\omega$ picks either $\mathcal{A}_{even}$ or $\mathcal{A}_{odd}$.
 
-For the even case break the space into two complimentary pieces in the following way:
+For the even case break each $\mathcal{A}_{g}$ into two complimentary pieces in the following way:
 \begin{eqnarray*}
 A_{i,0}:= \lbrace \theta_{g}^{n}(x_{i}) |n \equiv 0 \mbox{ mod } 2 \rbrace \\
 A_{i,1}:= \lbrace \theta_{g}^{n}(x_{i}) |n \equiv 1 \mbox{ mod } 2 \rbrace
@@ -933,7 +911,7 @@ B_{i,2}& := & \lbrace \theta_{g}^{n_{i}-1}(x_{i}) \rbrace
 \end{eqnarray*}
 $B_{i,2}$ is necessary here as the action of $\theta_{g}$ sends that point to $B_{i,0}$, which would otherwise have been a map from $B_{i,0}$ to itself. We build the corresponding $B_{j}=\sqcup_{\lbrace i | n_{i} \in \lbrace odd \rbrace \rbrace} B_{i,j}$. Again let $\theta_{g}(\omega)=\omega$ and observe that $B_{j} \in \omega$ for some $j$. Acting by $\theta_{g}$ gives: $\theta_{g}(B_{j})\in \theta_{g}(\omega)$, hence $\theta_{g}(B_{j})\in \omega$. Considering $j$ mod $3$: $B_{j}.g\subset B_{j+1}\sqcup B_{j+2}= B_{j}^{c}$ which again gives a contradiction.
 \end{proof}
-\end{proof}
+
 
 \begin{lemma}\label{Lem:ParFree}
 The partial action of $F_{k}$ defined above extends to $\beta X$ and is free on the boundary $\partial \beta X$.
@@ -1134,9 +1112,9 @@ The reductions to the inclusions of the preimages $f^{-1}(X_{i})$ restricted to 
 \item each $G(X_{i} \times \mathbb{N})|_{\partial\beta \mathbb{N}}$ is isomorphic to $(X_{i}\times X_{i})\times G(\mathbb{N})|_{\partial\beta \mathbb{N}}$;
 \item the union $\sqcup_{i}G(X_{i}\times \mathbb{N})|_{\partial\beta \mathbb{N}}$ is the entire of $G(Y)|_{U}$.
 \end{enumerate}
-To prove (1), observe that the groupoid decomposes as $G(X_{i}\times \mathbb{N}) = \bigcup_{R>0}\overline{\Delta_{R}(X_{i}\times \mathbb{N})}$. For each $R>0$ we can find a $j_{R}$ such that $\Delta_{R}(X_{i}\times \mathbb{N}) = F_{R} \cup \bigcup_{j>j_{R}}\Delta_{R}^{j}(X_{i}\times \mathbb{N})$, hence for the boundary part of this groupoid it is enough to understand what happens in each piece $Y_{i,j}$, which is constant for each $j$. Secondly, observe that in the induced metric on a column, the pieces $Y_{i,j}$ separate as $j\rightarrow \infty$. This, coupled with the fact that for large enough $R$, we know that $ \Delta^{j}_{R}(X_{i}\times \mathbb{N}) = X_{i} \times X_{i}$ allow us to deduce that any behavour at infinity of this groupoid is a product of $X_{i} \times X_{i}$ and the boundary groupoid $G(\mathbb{N})|_{\partial\beta \mathbb{N}$ where $\mathbb{N}$ has the coarsely disconnected metric. This groupoid is isomorphic to $\partial\beta \mathbb{N}$, from which we can deduce that $G(X_{i}\times \mathbb{N})|_{\partial\beta \mathbb{N}} = (X_{i}\times X_{i})\times \partial\beta \mathbb{N}$ for each $i$.
+To prove (1), observe that the groupoid decomposes as $G(X_{i}\times \mathbb{N}) = \bigcup_{R>0}\overline{\Delta_{R}(X_{i}\times \mathbb{N})}$. For each $R>0$ we can find a $j_{R}$ such that $\Delta_{R}(X_{i}\times \mathbb{N}) = F_{R} \cup \bigcup_{j>j_{R}}\Delta_{R}^{j}(X_{i}\times \mathbb{N})$, hence for the boundary part of this groupoid it is enough to understand what happens in each piece $Y_{i,j}$, which is constant for each $j$. Secondly, observe that in the induced metric on a column, the pieces $Y_{i,j}$ separate as $j\rightarrow \infty$. This, coupled with the fact that for large enough $R$, we know that $ \Delta^{j}_{R}(X_{i}\times \mathbb{N}) = X_{i} \times X_{i}$ allow us to deduce that any behaviour at infinity of this groupoid is a product of $X_{i} \times X_{i}$ and the boundary groupoid $G(\mathbb{N})|_{\partial\beta \mathbb{N}}$ where $\mathbb{N}$ has the coarsely disconnected metric. This groupoid is isomorphic to $\partial\beta \mathbb{N}$, from which we can deduce that $G(X_{i}\times \mathbb{N})|_{\partial\beta \mathbb{N}} = (X_{i}\times X_{i})\times \partial\beta \mathbb{N}$ for each $i$.
 
-To prove (2) we assume for a contradiciton that there is a partial translation $t$, such that $\overline{t}$ is not an element of the disjoint union. Such an element maps some $(x_{i}, \omega)$ to $(x_{k},\omega)$, where $i\not =k$. Without loss of generality assume also $t$ has translation length at most $R$. Then the domain and range of $t$ are both infinite (as the closure is defined in $G(Y)|_{U}$), and must be contained within a strip of width at most $R>0$. From the definition of the metric, there are only finitely many $Y_{i,j}$ within such a rectangle, hence $t \in F_{R}$ and hence $\overline{t}$ is not defined in $G(Y)|_{U}$, which yields a contradiction.
+To prove (2) we assume for a contradiction that there is a partial translation $t$, such that $\overline{t}$ is not an element of the disjoint union. Such an element maps some $(x_{i}, \omega)$ to $(x_{k},\omega)$, where $i\not =k$. Without loss of generality assume also $t$ has translation length at most $R$. Then the domain and range of $t$ are both infinite (as the closure is defined in $G(Y)|_{U}$), and must be contained within a strip of width at most $R>0$. From the definition of the metric, there are only finitely many $Y_{i,j}$ within such a rectangle, hence $t \in F_{R}$ and hence $\overline{t}$ is not defined in $G(Y)|_{U}$, which yields a contradiction.
 \end{proof}
 
 \begin{remark}
@@ -1154,12 +1132,12 @@ We begin the proof by remarking that each $U_{i}:=f^{-1}(X_{i}) \cap U$ is a clo
 \phi : C^{*}_{r}(G(Y)|_{\partial\beta Y})& \rightarrow & \prod_{i} C^{*}_{r}(G(Y)|_{U_{i}})= \prod_{i}C^{*}_{r}(G(X_{i} \times \mathbb{N})\\
  T  &\mapsto & \prod_{i}T|_{U_{i}}
 \end{eqnarray*}
-Under the map $\phi$, the subalgebra $C^{*}_{r}(G(Y)|_{U})= \bigoplus_{i}M_{\vert X_{i}\vert} \otimes C(\partial\beta Y)$ maps to the ideal $\bigoplus_{i}C^{*}_{r}(G(X_{i} \times \mathbb{N}))$. So, we can define a tracelike map, in analogy to \cite[Section 6]{explg1}, by composing with the quotient map $\tau$ onto $\frac{\prod_{i}C^{*}_{r}(G(X_{i} \times \mathbb{N}))}{\bigoplus_{i}C^{*}_{r}(G(X_{i} \times \mathbb{N}))}$. This gives us a map at the level of K-theory:
+Under the map $\phi$, the subalgebra $C^{*}_{r}(G(Y)|_{U})= \bigoplus_{i}M_{\vert X_{i}\vert} \otimes C(\partial\beta Y)$ maps to the ideal $\bigoplus_{i}C^{*}_{r}(G(X_{i} \times \mathbb{N}))$. So, we can define a trace-like map, in analogy to \cite[Section 6]{explg1}, by composing with the quotient map $\tau$ onto $\frac{\prod_{i}C^{*}_{r}(G(X_{i} \times \mathbb{N}))}{\bigoplus_{i}C^{*}_{r}(G(X_{i} \times \mathbb{N}))}$. This gives us a map at the level of K-theory:
 \begin{equation*}
 Tr_{*}=\phi \circ \tau : K_{0}(C^{*}_{r}(G(Y)|_{\partial\beta Y})) \rightarrow \frac{\prod_{i}K_{0}(C^{*}_{r}(G(X_{i} \times \mathbb{N})))}{\bigoplus_{i}K_{0}(C^{*}_{r}(G(X_{i} \times \mathbb{N})))}= \frac{\prod_{i}K_{0}(C(\partial\beta \mathbb{N}))}{\bigoplus_{i}K_{0}(C(\partial\beta \mathbb{N}))}
 \end{equation*}
 
-We now consider $[\pi(q)]$ under $Tr_{*}$. Recall that $q=\prod_{i,j}p_{i}$. We define $q_{i}=\prod_{j}p_{i}$ and observe that the operation of reducing to $G(Y)|_{U_{i}}$ can be performed in two commuting ways: restricting to $U$ then $f^{-1}(X_{i})$ or by restricting to $f^{-1}(X_{i})$ then $U$. The second tells us that $q_{i}=p_{i} \otimes 1_{\beta\mathbb{N}$ is constant in the $j$ direction and when restricted to the boundary is $\pi(q_{i})=p_{i}\otimes 1_{\partial\beta \mathbb{N}}$. Hence, $Tr_{*}([\pi(q)])=[1_{\partial\beta \mathbb{N}},1_{\partial\beta\mathbb{N}},...] \not = 0$ and so $[\pi(q)] \not \in K_{0}(C^{*}_{r}(G(Y)|_{U})$.
+We now consider $[\pi(q)]$ under $Tr_{*}$. Recall that $q=\prod_{i,j}p_{i}$. We define $q_{i}=\prod_{j}p_{i}$ and observe that the operation of reducing to $G(Y)|_{U_{i}}$ can be performed in two commuting ways: restricting to $U$ then $f^{-1}(X_{i})$ or by restricting to $f^{-1}(X_{i})$ then $U$. The second tells us that $q_{i}=p_{i} \otimes 1_{\beta\mathbb{N}}$ is constant in the $j$ direction and when restricted to the boundary is $\pi(q_{i})=p_{i}\otimes 1_{\partial\beta \mathbb{N}}$. Hence, $Tr_{*}([\pi(q)])=[1_{\partial\beta \mathbb{N}},1_{\partial\beta\mathbb{N}},...] \not = 0$ and so $[\pi(q)] \not \in K_{0}(C^{*}_{r}(G(Y)|_{U})$.
 \end{proof}
 
 So in this case we have the following diagram:
