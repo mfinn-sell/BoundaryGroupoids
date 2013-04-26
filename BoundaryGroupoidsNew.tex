@@ -113,6 +113,7 @@ The first author wishes to thank the second author, his supervisor, for his unen
 \numberwithin{theorem}{section}
 
 \subsection{Groupoids, expanders and the coarse Baum-Connes conjecture.}\label{Sect:GO}
+Groupoids play an prominent role in topology and geometry, particularly influencing coarse geometry through the work of \cite{}. We recall the definition of a groupoid in this context and give examples to illustrate the imporant features required for the later parts of the paper.
 \begin{definition}\label{def:grpoid2} A \textit{groupoid} is a small category in which every arrow is invertible, that is a set $\G$ equipped with the following information:
 \begin{enumerate}
 \item A subset $\G^{(0)}$ consisting of the objects of $\G$, denote the inclusion map by $i: \G^{(0)}\hookrightarrow \G$. 
@@ -160,9 +161,9 @@ Let $X$ be a topological $\Gamma$-space. Then the \textit{transformation groupoi
 The construction in the example above can be generalized to actions of \'etale groupoids. We are concerned with the topology here: Given an \'etale groupoid $\G$ and a $\G$-space $X$ as well as a with a basis $\lbrace U_{i} \rbrace$ for $\G^{(0)}$. We can pull this basis back to a basis for $X \rtimes \G$ given by $[r_{z}^{-1}(U_{i}),\gamma]$, where $U_{i} \subseteq s(\gamma)$.
 \end{example}
 
-\begin{example}Let $X$ be a coarse space with uniformly locally finite, weakly connected coarse structure $\mathcal{E}$. Define $G(X):=\cup_{E\in \mathcal{E}}\overline{E}.$ Then $G(X)$ is a locally compact, \'etale groupoid with the induced product, inverse and topology from $\beta X \times \beta X$.
+\begin{example}Let $X$ be a coarse space with uniformly locally finite, weakly connected coarse structure $\mathcal{E}$, such as a uniformly discrete metric space $X$ with its metric coarse structure. Define $G(X):=\cup_{E\in \mathcal{E}}\overline{E}.$ Then $G(X)$ is a locally compact, \'etale groupoid with the induced product, inverse and topology from $\beta X \times \beta X$.
 \end{example}
-As we are considering the metric coarse structure we can reduce this to considering only generators:
+By considering the metric coarse structure we can reduce this to considering only generators:
 \begin{equation*}
 G(X):=\bigcup_{R>0}\overline{\Delta_{R}}
 \end{equation*}
@@ -208,7 +209,7 @@ The following notion is due to Guoliang Yu (unpublished):
 An operator $T \in C^{*}X$ is a \textit{ghost operator} if $\forall \epsilon >0$ there exists a bounded subset $B \subset X\times X$ such that the norm: $\Vert T_{xy} \Vert \leq \epsilon$ for all $(x,y) \in (X\times X) \setminus B$.
 \end{definition}
 
-The kernel $p$ of the Laplacian $\Delta$ is a ghost operator.
+The kernel $p$ of the Laplacian $\Delta$ is a ghost operator. 
 
 \section{Counterexamples to the coarse Baum-Connes conjecture and Boundary Groupoids}\label{Sect:CE}
 

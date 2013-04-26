@@ -234,17 +234,7 @@ On the other hand this may fail to be an exact sequence when we complete in the 
 \begin{equation}\label{eqn:neim}
 K_{0}(C^{*}_{r}(G_{U}))\rightarrow K_{0}(C^{*}_{r}(G)) \rightarrow K_{0}(C^{*}_{r}(G_{F}))
 \end{equation}
-
-This was used in \cite{MR1911663} to construct multiple different types of counterexample to the Baum-Connes conjecture for groupoids - each of which invokes the following Lemma:
-\begin{lemma}\label{Lem:Lemma1}(\cite[Lemma 1]{MR1911663})
-Assume the sequence (\ref{eqn:neim}) is not exact at its middle term.
-\begin{enumerate}
-\item If the Baum-Connes map $K_{0}^{top}(G_{F}) \rightarrow K_{0}(C^{*}_{r}(G_{F}))$ is injective then the Baum-Connes map $K_{0}^{top}(G) \rightarrow K_{0}(C^{*}_{r}(G))$ fails to be surjective.
-\item If the map $K_{0}(C^{*}_{max}(G_{F})) \rightarrow K_{0}(C^{*}_{r}(G_{F}))$ is injective then the map $K_{0}(C^{*}_{max}(G)) \rightarrow K_{0}(C^{*}_{r}(G))$ fails to be surjective and a fortiori the Baum-Connes map $K_{0}^{top}(G) \rightarrow K_{0}(C^{*}_{r}(G))$ fails to be surjective.
-\end{enumerate}
-\end{lemma}
-
-We observe that whilst the sequence:
+This was used in \cite{MR1911663} to construct multiple different types of counterexample to the Baum-Connes conjecture for groupoids. We observe that whilst the sequence:
 \begin{equation*}
 \xymatrix{
 0 \ar[r] & C_{r}^{*}(G_{F^{c}}) \ar[r]^{\alpha}& C_{r}^{*}(G) \ar[r]^{q} & C_{r}^{*}(G_{F}) \ar[r] & 0
@@ -275,12 +265,12 @@ Let $X$ be a uniformly discrete bounded geometry metric space. From what was des
 }
 \end{equation*}
 
-We can now properly formulate the boundary conjecture (replacing the coefficients):
+We can now properly formulate the boundary conjecture by replacing the coefficients. Let $A_{\partial}:= \frac{\ell^{\infty}(X,\mathcal{K})}{C_{0}(X,\mathcal{K})}$
 
 \begin{conj} [Boundary Coarse Baum-Connes Conjecture]
 Let $X$ be a unformly discrete bounded geometry metric space. Then the assembly map:
 \begin{equation*}
-\mu_{bdry}:K_{*}^{top}(G(X)|_{\partial\beta X}, l^{\infty}(X,\mathcal{K})/C_{0}(X,\mathcal{K})) \rightarrow K_{*}((l^{\infty}(X,\mathcal{K})/C_{0}(X,\mathcal{K}))\rtimes_{r}G(X)|_{\partial\beta X})
+\mu_{bdry}:K_{*}^{top}(G(X)|_{\partial\beta X}, A_{\partial}) \rightarrow K_{*}(A_{\partial}\rtimes_{r}G(X)|_{\partial\beta X})
 \end{equation*}
 is an isomorphism.
 \end{conj}
@@ -334,8 +324,8 @@ It remains to consider the topology. For each $g\in \Gamma$, the map from $\part
 Let $\Gamma$ be a finitely generated residually finite group and let $\lbrace N_{i}\rbrace$ be a family of finite index normal subgroups such that $N_{i}\leq N_{i+1}$, $\bigcap_{i \in \mathbb{N}}N_{i}=1$ and a fixed generating set $S$. Then the sequence of groups $\lbrace \Gamma/N_{i}\rbrace$ with generating sets $\pi_{i}(S)$ admits an action via quotient maps. Let $\square\Gamma= \sqcup_{i \in \mathbb{N}}\frac{\Gamma}{N_{i}}$, equipped with a metric that restricts to the metric induced from the generating sets $\pi_{i}(S)$ for each $i$, and has the property that $d(\frac{\Gamma}{N_{i}},\frac{\Gamma}{N_{j}})\rightarrow \infty$ as $i+j \rightarrow \infty$. This is called a \textit{box space} for $\Gamma$. The Stone-\u{C}ech boundary admits a free action of the group and the metric structure is generated at infinity by the quotients maps and the right action of the group via these maps. Proposition \ref{Prop:Crit} then provides a description of the boundary groupoid. This process did not require a normal subgroup; Box spaces can constructed using Schreier quotients.
 \end{example}
 
-\section{A proof of the conjecture for spaces of graphs with large girth.}\label{Sect:MR}
-The aim of the remainder of the paper is to prove the following result:
+\section{A Proof of the Conjecture for Spaces of Graphs with Large Girth.}\label{Sect:MR}
+The aim of this section is to prove the following result:
 \begin{thm}
 The boundary coarse Baum-Connes conjecture holds for spaces of graphs with large girth and uniformly bounded vertex degree.
 \end{thm}
@@ -398,7 +388,7 @@ We say $S$ is 0-E-unitary if $\forall e \in E\setminus 0, s \in S \setminus 0$ $
 \end{definition}
 
 \subsection{Groupoids from Inverse Monoids}
-We take an inverse monoid $S$ and produce a universal groupoid $\G_{\E}$. One way to do this involves studying the actions of $S$ on its semilattice $E$. We then refine this using  the representations of $S$ by partial bijections on a space $X$; there is a corresponding representation on Hilbert space of the groupoid $\G_{\E}$.
+We take an inverse monoid $S$ and produce a universal groupoid $\G_{\E}$. One way to do this involves studying the actions of $S$ on its semilattice $E$.
 
 We outline the steps in the construction.
 \begin{enumerate}
@@ -420,7 +410,7 @@ The use of $\widehat{D}_{e}$ to denote these sets is not a coincidence, as we ha
 e \mapsto \phi_{e}, \phi_{e}(f)=1 \mbox{ if } e \leq f \mbox{ and } 0 \mbox{ otherwise }.
 \end{equation*}
 \begin{remark}
-These character maps $\phi: E \rightarrow \lbrace 0,1 \rbrace$ have an alternative interpretation, they can be considered as \textit{filters} on $E$. A filter on $E$ is given  a set $F \subset E$ with the following properties:
+These character maps $\phi: E \rightarrow \lbrace 0,1 \rbrace$ have an alternative interpretation, they can be considered as \textit{filters} on $E$. A filter on $E$ is given by a set $F \subset E$ with the following properties:
 \begin{itemize}
 \item for all $e,f \in F$ we have that $e\wedge f=ef \in F$
 \item for $e\in F$ with $e \leq f$ we have that $f \in F$ and
@@ -447,7 +437,7 @@ and product and inverse:
 \begin{eqnarray*}
 [s,\phi].[t,\phi^{'}]= [st,\phi^{'}] \mbox{ if } ([s,\phi],[t,\phi^{'}]) \in \G_{\E}^{(2)}, [s,\phi]^{-1} = [s^{*},\widehat{\rho}_{s}(\phi)] 
 \end{eqnarray*}
-For all the details of the above, we refer to \cite[Section 4]{MR2419901}. We call this groupoid the \textit{universal groupoid} associated to $S$. We collect some information about this groupoid from \cite{MR2419901,MR1724106} in Theorem \ref{Thm:Info}.
+For all the details of the above, we refer to \cite[Section 4]{MR2419901}. This is tthe \textit{universal groupoid} associated to $S$. We collect some information about this groupoid from \cite{MR2419901,MR1724106} in Theorem \ref{Thm:Info}.
 \end{enumerate}
 \end{definition}
 
@@ -455,16 +445,11 @@ For all the details of the above, we refer to \cite[Section 4]{MR2419901}. We ca
 Let $S$ be a countable 0-E-unitary inverse monoid, $E$ its semilattice of idempotents and $\G_{\E}$ its universal groupoid. Then the following hold for $\G_{\E}$:
 \begin{itemize}
 \item $\E$ is a compact, Hausdorff and second countable space.
-\item $\G_{\E}$ is a Hausdorff groupoid.
-\item Every unitary representation of $S$ on Hilbert space gives rise to a covariant representation of $\G_{\E}$ and vice versa.
-\item We have $C^{*}_{r}(S) \cong C^{*}_{r}(\G_{\E})$.
+\item $\G_{\E}$ is a Hausdorff groupoid \cite[Corollary 10.9]{MR2419901}.
+\item Every representation of $S$ on Hilbert space gives rise to a covariant representation of $\G_{\E}$ and vice versa \cite[Corollary 10.16]{MR2419901}.
+\item We have $C^{*}_{r}(S) \cong C^{*}_{r}(\G_{\E})$ \cite{MR1724106,MR1900993}
 \end{itemize}
 \end{theorem}
-\begin{proof}
-The first point is a consequence of the fact that $E$ is countable, in this situation we know precisely that $\textbf{2}^{E}$ is metrizable, hence as a closed subset we know that $\E$ is second countable. It is compact and Hausdorff as it is a closed subset of a compact, Hausdorff space.
-
-The second point follows from \cite[Corollary 10.9]{MR2419901}, the third point is \cite[Corollary 10.16]{MR2419901} and the fourth point follows from \cite{MR1724106}, but a more elementary proof is given in \cite{MR1900993}.
-\end{proof}
 
 We make use of the following technical property that arises from the presence of maximal elements:
 
@@ -724,104 +709,16 @@ We complete the proof by observing that for each $\theta_{g} \in A_{fin}$ the se
 \overline{\Delta_{R}}\setminus \Delta_{R} = \bigcup_{g \in A_{\infty}}\overline{\Delta_{\theta_{g}}}\setminus \Delta_{\theta_{g}}= \bigcup_{\vert g \vert < R}\overline{\Delta_{\theta_{g}}}\setminus \Delta_{\theta_{g}}
 \end{equation*}\end{proof}
 
-The following is a concept of orbit:
-\begin{definition}
-We say a subset $\mathcal{A}_{g} \subset X$ is a \textit{stable core} for the element $\theta_{g}$ if $\theta_{g}(\mathcal{A}_{g})=\mathcal{A}_{g}$. 
-\end{definition}
-Recall that for each subset $A$ of $X$, $\widehat{D}_{A}:=\lbrace \omega \in \partial \beta X | A \in \omega \rbrace$.
-
-\begin{lemma}\label{Lem:StabCore}
-Let $\theta: F_{k} \rightarrow I_{b}(X)$ be the partial action defined above. If $\mathcal{A}_{g}$ is a stable core then for any $\omega \in \widehat{D}_{\mathcal{A}_{g}}$ $\omega \not = \theta_{g}(\omega)$.
+\begin{lemma}\label{Lem:ParFree}
+The partial action of $F_{k}$ defined above extends to $\beta X$ and is free on the boundary $\partial \beta X$.
 \end{lemma}
-\begin{proof}
-Take $x_{i}\in \mathcal{A}^{i}_{g}$. Then let $n_{i}$ the the smallest integer such that $\theta_{g}(x_{i})=x_{i}$. We observe also that there are two cases as for any $\omega \in D_{\mathcal{A}_{g}}$ as we know that the pieces: 
-\begin{eqnarray*}
-\mathcal{A}_{even}=\bigsqcup_{n_{i}\equiv 0 mod 2} \mathcal{A}_{g}^{i}\\
-\mathcal{A}_{odd}=\bigsqcup_{n_{i} \equiv 1 mod 2} \mathcal{A}_{g}^{i}
-\end{eqnarray*}
-are mutually complimentary and union to the entire of $\mathcal{A}_{g}^{i}$, hence $\omega$ picks either $\mathcal{A}_{even}$ or $\mathcal{A}_{odd}$.
-
-For the even case break each $\mathcal{A}_{g}$ into two complimentary pieces in the following way:
-\begin{eqnarray*}
-A_{i,0}:= \lbrace \theta_{g}^{n}(x_{i}) |n \equiv 0 \mbox{ mod } 2 \rbrace \\
-A_{i,1}:= \lbrace \theta_{g}^{n}(x_{i}) |n \equiv 1 \mbox{ mod } 2 \rbrace
-\end{eqnarray*}
-and let $A_{j}=\sqcup_{i|n_{i} \in \lbrace even \rbrace}A_{i,j}$. We assume for a contradiction that $\omega=\theta_{g}(\omega)$ and then observe that $g$ permutes $A_{0}$ to $A_{1}$, so if, without loss of generality, $A_{0} \in \omega$ we can deduce that $\theta_{g}(A_{0})=A_{1}=A_{0}^{c}\in \omega$, which is a contradiction. 
-
-The odd case is similar only we break each $\mathcal{A}_{g}^{i}$ represented into three pieces:
-\begin{eqnarray*}
-B_{i,0} & := & \lbrace \theta_{g}^{n}(x_{i}) |n \equiv 0 \mbox{ mod } 2 \mbox{ and } n\not = n_{i}-1 \rbrace \\
-B_{i,1}& := & \lbrace \theta_{g}^{n}(x_{i}) |n \equiv 1 \mbox{ mod } 2 \rbrace \\
-B_{i,2}& := & \lbrace \theta_{g}^{n_{i}-1}(x_{i}) \rbrace
-\end{eqnarray*}
-$B_{i,2}$ is necessary here as the action of $\theta_{g}$ sends that point to $B_{i,0}$, which would otherwise have been a map from $B_{i,0}$ to itself. We build the corresponding $B_{j}=\sqcup_{\lbrace i | n_{i} \in \lbrace odd \rbrace \rbrace} B_{i,j}$. Again let $\theta_{g}(\omega)=\omega$ and observe that $B_{j} \in \omega$ for some $j$. Acting by $\theta_{g}$ gives: $\theta_{g}(B_{j})\in \theta_{g}(\omega)$, hence $\theta_{g}(B_{j})\in \omega$. Considering $j$ mod $3$: $B_{j}.g\subset B_{j+1}\sqcup B_{j+2}= B_{j}^{c}$ which again gives a contradiction.
-\end{proof}
-
-
 \begin{lemma}\label{Lem:ParFree}
 The partial action of $F_{k}$ defined above extends to $\beta X$ and is free on the boundary $\partial \beta X$.
 \end{lemma}
 \begin{proof}
-For each $g \in F_{k}$ the domain of $\theta_{g}$ breaks into three pieces. The first piece, index denoted $I_{0}$, consists of all the $D_{g^{*}g}^{i}$ such that $D_{\theta_{g}^{*}\theta_{g}}^{i} \cap D_{\theta_{g}\theta_{g}^{*}}^{i}$ is empty; the second, indexed by $I_{1}$, consists of all the $D_{\theta_{g}^{*}\theta_{g}}^{i}$ such that $D_{\theta_{g}^{*}\theta_{g}}^{i}\cap D_{\theta_{g}\theta_{g}^{*}}^{i}$ is not empty but $D_{\theta_{g}^{*}\theta_{g}}^{i}$ is not contained in $D_{\theta_{g}\theta_{g}^{*}}^{i}$; and the third, denoted by $I_{2}$ is all the $D^{i}_{\theta_{g}^{*}\theta_{g}}$ such that $D_{\theta_{g}^{*}\theta_{g}}^{i}=D_{\theta_{g}\theta_{g}^{*}}^{i}$.
-
-\begin{figure}[h]\label{Fig:ParFree}
-%Def of Circles needed
-\def\firstcircle{(-8.5,0) circle (1cm)}
-\def\secondcircle{(-5.75,0) circle (1cm)}
-\def\thirdcircle{(-2,0) circle (1cm)}
-\def\forthcircle{(-0.75,0) circle (1cm)}
-\def\fifthcircle{(3.2,0) circle (1cm)}
-\def\sixthcircle{(3.2,0) circle (1cm)}
-%\tikzset{filled/.style={fill=circle area, draw=circle edge, thick},
-%    outline/.style={draw=circle edge, thick}}
- %  \setlength{\parskip}{5mm}
-\begin{tikzpicture}
-    \begin{scope}[fill opacity=0.5]
-         \clip \forthcircle
-               \fifthcircle;
-     \fill \thirdcircle  
-                   \fifthcircle;
-    \end{scope}
-               
-    \draw (-10,0) node {$i):$};  
-    \draw \firstcircle node {$D^{i}_{\theta_{g}^{*}\theta_{g}}$};
-    \draw \secondcircle node {$D^{i}_{\theta_{g}\theta_{g}^{*}}$};
-    \draw[>=stealth,->,thick] (-7.65,0.65) -- node [above] {$\theta_{i}(g)$} (-6.6,0.65);
-     \draw[>=stealth,->,thick] (-6.6,-0.65) -- node [below] {$\theta_{i}(g)^{*}$} (-7.65,-0.65);
-       
-    \draw (-3.6,0) node {$ii):$};  
-    \draw \forthcircle ;
-    \draw \thirdcircle ;%node  {$D_{g^{*}g$};
-    \draw[>=stealth,->,thick] (-2.2,0.6) -- node [above=8pt] {$\theta_{i}(g)$} (-0.6,0.6);
-    \draw[>=stealth,->,thick] (-0.6,-0.6) -- node [below=8pt] {$\theta_{i}(g)^{*}$} (-2.2,-0.6);
-    \draw (-2.3,0)  node  {$D^{i}_{\theta_{g}^{*}\theta_{g}}$};
-    \draw (-0.3,0)  node  {$D^{i}_{\theta_{g}\theta_{g}^{*}}$};
-    
-    \draw (1.45,0) node {$iii):$};
-    \draw \sixthcircle ;
-    \draw \fifthcircle;
-    \draw[>=stealth,->,thick] (2.9,0.6) --  node [above=9pt] {$\theta_{i}(g)$} (3.5,0.6);
-    \draw[>=stealth,->,thick] (3.5,-0.6) --  node [below=9pt] {$\theta_{i}(g)$} (2.9,-0.6);    
-    
-\end{tikzpicture}
-\caption{The three cases for Lemma \ref{Lem:ParFree}}
-\end{figure}
-
-Case i) is clear. In Case iii) we observe that $A_{3}:= \sqcup_{i \in I_{3}} D_{\theta_{g}^{*}\theta_{g}}^{i}$ is a stable core. By Lemma \ref{Lem:StabCore}, $\omega\not = \omega_{g}(\omega)$ if $A_{3} \in \omega$. This leaves case ii).
-
-Let $A_{0,i}:= D_{\theta_{g}^{*}\theta_{g}}^{i}\setminus D_{\theta_{g}^{*}\theta_{g}}^{i}\cap D_{\theta_{g}\theta_{g}^{*}}^{i} $ and $A_{1}=D_{\theta_{g}^{*}\theta_{g}}^{i}\cap D_{\theta_{g}\theta_{g}^{*}}^{i}$. Then set $A_{j}=\bigsqcup_{i \in I_{2}}A_{j,i}$ and let $\omega \in \partial \beta X$. If $A_{0} \in \omega$ then $\theta(g)(A_{0})  \subset A_{0}^{c}$, which implies that $\theta(g)(A_{0}) \not \in \theta(g)(\omega)$. 
-
-It remains to deal with $A_{1} \in \omega$. Assume for a contradiction that $\theta(g)(\omega) = \omega$. Then $\theta(g)(A_{1})\cap A_{1} \in \omega$, and we can apply $\theta(g)$ again - denote by $A_{1}^{m}=A_{1} \cap \theta(g)(A_{1}) \cap ... \cap \theta(g)^{m}(A_{1})$. For each $i \in I_{2}$ there exists a power $m_{i}$ of $\theta(g)$ such that this intersection stabilises in $X_{i}$, that is $A_{1,i}^{m_{i}}=A_{1,i}^{m_{i}+1}$. 
-
-Let $\mathcal{A} = \bigcap_{m\in \mathbb{N}} A_{1}^{m}$. This is a stable core. If $\mathcal{A} \in \omega$ then Lemma \ref{Lem:StabCore} gives $\omega \not = \theta_{g}(\omega)$.
-
-So the last case to consider is that $\mathcal{A}^{c}\in \omega$. It suffices to work in $A_{1}$, so let $B_{1}=\mathcal{A}^{c}\cup A_{1}$ and then define $B_{i} = \theta_{g}(B_{i-1})\cap B_{1}$. It follows from the construction of $\mathcal{A}$ that every element $x \in B_{1}$ has an associated smallest natural number $n_{x}$ such that $\theta_{g}^{n_{x}}(x) \not \in B_{n_{x}}$. It is clear from the definition that $B_{i+1} \subset B_{i}$ for every $i$. Lastly, define $B^{-1}_{i+1}:=\theta_{g}^{-1}(B_{i+1}) \subset B_{i}$.  From this we consider the decomposition of $B_{i}$ into two disjoint infinite pieces:
-\begin{eqnarray*}
-B^{\pm 1}_{i,even}:= \lbrace x \in B_{i}^{\pm 1} | n_{x} \equiv 0 \mbox{ mod } 2 \rbrace \\
-B^{\pm 1}_{i,odd}:= \lbrace x \in B_{i}^{\pm 1} | n_{x} \equiv 1 \mbox{ mod } 2 \rbrace.
-\end{eqnarray*} 
-$\omega$ must choose precisely one of these two pieces for each $i$. Assume without loss that $B_{1,even} \in \omega$. It is clear that $B^{-1}_{2} \cap B_{1,even} = B_{2,even}^{-1} \in \omega$ is sent, by $\theta_{g}$, to $B_{2,odd}$ and so $B_{2,odd} \in \theta_{g}(\omega)$. From the assumption that $\theta_{g}(\omega)=\omega$, we can conclude that $B_{2,odd} \in  \omega$. As ultrafilters are upwardly closed, we know also that $B_{1,odd} \in \omega$, which is a contradiction. 
+Fix $g \in F_{k}$. As the sequence of graphs has large girth there exists an $i_{g} \in \mathbb{N}$ such that for all $i\geq i_{g}$ $\theta_{g}^{i}$ has no fixed points.  Let $\omega \in \widehat{D}_{\theta_{g}^{*}\theta_{g}}$ and assume for a contradiction that $\theta_{g}(\omega)=\omega$. Consider the graph $G$ with vertex set $V=\sqcup_{i\geq i_{g}} X_{i}$, where two vertices $x$ and $y$ are joined by an edge if and only if $y=\theta_{g}(x)$. This graph will have degree at most 2. Additionally, the set of non-isolated vertices inside $V$ contains $D_{\theta_{g}^{*}\theta_{g}}$ and so the subgraph with vertex set consisting of the non-isolated vertices and the same edge set is chosen by $\omega$ and has degree at most 2. Any such graph can be at most $3$ coloured, subsequently the vertex set breaks into three disjoint pieces $V_{1}, V_{2}$ and $V_{3}$ and the ultrafilter $\omega$ will pick precisely one of the $V_{i}$. The action of $\theta_{g}$ sends $V_{i}$ into $V_{i+1}$ modulo $3$ by construction. Lastly, $V_{i} \in \omega$ implies $V_{i+1} \in \theta_{g}(\omega)=\omega$, which is a contradiction.
 \end{proof}
+
 
 This freeness gives us a tool to understand the structure of $S_{\inf}$.
 
@@ -860,7 +757,6 @@ Appealing to the machinery we developed earlier in Propostions \ref{Prop:Strongl
 The inverse monoid $S_{inf}$ is strongly 0-F-inverse.
 \end{corollary}
 
-\subsection{Proof of the main result.}
 We now have enough tools to prove the following result:
 \begin{theorem}
 Let $\lbrace X_{i} \rbrace$ be a sequence of finite graphs of large girth and vertex degree uniformly bounded above by $2k$ and let $X$ be the corresponding space of graphs. Then the boundary coarse Baum-Connes conjecture holds for $X$. 
@@ -872,7 +768,7 @@ We can now conclude the Theorem by remarking that the isomorphism of groupoids $
 \end{proof}
 
 \section{Applications to the coarse Baum-Connes conjecture.}
-We confirm that the kernel $I$ is the ghost ideal $I_{G}$. In order to prove this we need some technology of \cite{MR1911663}:
+In this section we capture, via homological methods, all the known counterexample arguments present in the literature using the boundary conjecture. We begin by confirming that the kernel $I$ constructed in section \ref{Sect:CE} is the ghost ideal $I_{G}$. In order to prove this we need some technology of \cite{MR1911663}:
 
 \begin{lemma}\label{Lem:Lemma9}\cite[Lemma 9]{MR1911663}
 If an \'etale topological groupoid $\G$ acts on a $C^{*}$-algebra A, then the map $C_{c}(\G,A) \rightarrow C_{0}(\G,A)$ extends to an injection (functorial in A) from $A\rtimes_{r} \G$ to $C_{0}(\G,A)$. \qed
@@ -922,49 +818,32 @@ Recall that the assembly map $\mu_{I_{G}}$ associated to the open saturated subs
 Let $\lbrace X_{i} \rbrace_{i\in \mathbb{N}}$ be a sequence of finite graphs. The the following hold for the space of graphs $X$:
 \begin{enumerate}
 \item The induced map $i_{*}:K_{*}(\mathcal{K}(\ell^{2}(X,\mathcal{K})) \rightarrow K_{*}(C^{*}X)$ is injective.
-\item If $X$ is an expander then $K_{*}^{top}(X\times X)\cong K_{*}(\mathcal{K}(\ell^{2}(X)) \rightarrow K_{*}(I_{G})$.
+\item If $X$ is an expander then $K_{*}^{top}(X\times X)\cong K_{*}(\mathcal{K}(\ell^{2}(X)) \rightarrow K_{*}(I_{G})$ is not surjective.
 \end{enumerate}
 \end{proposition}
 \begin{proof}
-We prove (2), which is an adaptation of a well-known argument.
+Consider the coarse map $X=\sqcup_{i} X_{i} \rightarrow P:=\sqcup_{i} \ast$ given by projecting each factor to a point and $P$ carries the coarse disjoint union metric. This induces a tracelike map on the K-theory of $C^{*}X$, which we denote by $Tr$. Observe also that $C^{*}P \cong \ell^{\infty}(P,\mathcal{K})+\mathcal{K}(\ell^{2}(P,\mathcal{K}))$, hence has $K_{0}(C^{*}P) \cong  \frac{\prod\mathbb{Z}}{K}$, where $K$ is the subgroup of $\bigoplus \mathbb{Z}$ of elements with sum equal to 0. Now:
 
-Consider the algebra $C^{*}X_{\infty}$; the Roe algebra of the space of graphs with the disjoint union 'metric'. The following diagram commutes:
+To prove (1), Observe that the following diagram commutes:
 \begin{equation*}
-\xymatrix{\bigoplus_{i\in\mathbb{N}}\mathcal{K}(\ell^{2}(X_{i}))\ar@{=}[r] &\bigoplus_{i\in \mathbb{N}}C^{*}X_{i} \ar@{^{(}->}[r]\ar@{^{(}->}[dr] & C^{*}X_{\infty} \ar@{->>}[r]^{q} \ar@{^{(}->}[d] & \frac{C^{*}X_{\infty}}{\bigoplus_{i\in\mathbb{N}}C^{*}X_{i}}\ar@{^{(}->}[d]^{i}\\
-& & \prod_{i\in \mathbb{N}}C^{*}X_{i} \ar@{->>}[r]& \frac{\prod_{i\in\mathbb{N}} C^{*}(X_{i})}{\bigoplus_{i\in\mathbb{N}}C^{*}X_{i}}
+\xymatrix{ K_{0}(C^{*}X) \ar[r]& \frac{\prod\mathbb{Z}}{K}\\
+K_{0}(\mathcal{K}) \ar[u] \ar[ur] &
 }
 \end{equation*}
-We remark that we can conclude $C^{*}X = C^{*}X_{\infty}+\mathcal{K}$. Let $I_{G,\infty} = I_{G}\cap C^{*}X_{\infty}$. Then by the second isomorphism theorem:
-\begin{equation*}
-\frac{I_{G}}{\mathcal{K}(\ell^{2}(X))}\cong \frac{I_{G,\infty}}{\bigoplus_{i\in\mathbb{N}}\mathcal{K}(\ell^{2}(X_{i}))}
-\end{equation*}
-We define the map $d$ to be the compositions of $q$ and the inclusion $i$. The map $d$ induces a map on K-theory that is used to detect non-triviality of ghosts. $d$ restricts to $I_{G.\infty}$ and if $d|_{G,*}([p])\not=0$ then $q_{*}([p])\not=0$.
+Where the image of a rank one projection in $K_{0}(\mathcal{K})$ is given by a vector $(1,0,...)$, which is certainly an injection. It now follows that the upward map is injective.
 
-Let $p$ be the ghost projection associated to Laplacian $\Delta$ of the $X_{i}s$ defined in Remark \ref{Rem:Ghost}. This lies in $C^{*}X$ as $X$ is an expander, and is clearly an element of $C^{*}X_{\infty}$ as it is defined piecewise. $p$ evalutates to a non-trivial class under $d_{G,*}$ so we know that $K_{0}(\frac{I_{G,\infty}}{\bigoplus_{i\in\mathbb{N}}C^{*}X_{i}})\not= 0$. From here we see that $K_{0}(\mathcal{K}) \rightarrow K_{0}(I_{G})$ is not surjective and so $\mu_{I_{G}}$ is not surjective either.
-
-To see injectivity it suffices to show that $K_{1}(I_{G})\rightarrow K_{0}(\mathcal{K})$ is the zero map. Consider the following diagram:
-\begin{equation*}
-\xymatrix{\bigoplus_{i \in \mathbb{N}} M_{i} \ar@{->}[r]\ar@{=}[d]  & I_{G,\infty} \ar@{^{(}->}[r]& C^{*}X_{\infty} \ar@{->}[r]& \prod_{i\in \mathbb{N}}M_{i}\ar@{=}[d]\\
-\bigoplus_{i \in \mathbb{N}} M_{i}\ar@{^{(}->}[rrr] & & & \prod_{i\in \mathbb{N}}M_{i}
-}
-\end{equation*}
-Given that the bottom long arrow defines an injection on K-theory we can deduce that the first map is also an injection on K-theory. Now we ask this in the Roe algebra by considering the following diagram:
-\begin{equation*}
-\xymatrix{K_{1}(\frac{I_{G,\infty}}{\bigoplus_{i\in\mathbb{N}}M_{i}})\ar@{->}[r]^{0}\ar@{=}[d]& K_{0}(\bigoplus_{i\in \mathbb{N}}M_{i}) \ar@{^{(}->}[r]\ar@{->>}[d] & K_{0}(I_{G,\infty}) \ar@{->>}[r] \ar@{->}[d] & K_{0}(\frac{I_{G,\infty}}{\bigoplus_{i\in\mathbb{N}}M_{i}})\ar@{=}[d]\\
-K_{1}(\frac{I_{G}}{\mathcal{K}})\ar@{->}[r]& K_{0}(\mathcal{K}) \ar@{->}[r] & K_{0}(I_{G}) \ar@{->>}[r]  & K_{0}(\frac{I_{G}}{\mathcal{K}})}
-\end{equation*}
-This completes the proof via a short diagram chase. The proof of (1) is similar to the injectivity case above, replacing ghost ideals by Roe algebras everywhere.
+For (2) consider a nontrivial ghost projection $p \in I_{G}$. It is well known that $Tr([p]) \not\in \frac{\bigoplus \mathbb{Z}}{K}$, whilst $Tr([k]) \in \frac{\bigoplus\mathbb{Z}}{K}$ for any compact operator \cite{explg1}. As these differ under $Tr$, they cannot possibly be equal in $K_{0}(I_{G})$.
 \end{proof}
 
 The boundary coarse Baum-Connes conjecture has applications to the coarse Baum-Connes conjecture for spaces of graphs:
 
-\begin{proposition}\label{Prop:Cor}
+\begin{theorem}\label{Prop:Cor}
 Let $X$ be a space of graphs arising from a sequence of finite graphs $\lbrace X_{i} \rbrace$. If  boundary coarse Baum-Connes conjecture is injective then the following hold:
 \begin{enumerate}
 \item The coarse Baum-Connes assembly map for $X$ is injective.
 \item If $X$ is an expander then the coarse Baum-Connes assembly map for $X$ fails to be surjective.
 \end{enumerate}
-\end{proposition}
+\end{theorem}
 \begin{proof}
 Consider the diagram:
 $$
@@ -975,7 +854,7 @@ $$
 $$
 We prove (1) by considering an element $x \in K_{0}^{top}(G(X))$ such that $\mu(x)=0$. Then $x$ maps to $0\in K_{0}^{top}(G(X)|_{\partial\beta X})$ and so comes from an element $y \in \mathbb{Z}$. Each square commutes hence $y$ maps to $0 \in K_{0}(C^{*}_{r}(G(X))$. As the composition up and left (as indicated in the diagram) is injective by Proposition \ref{Prop:Ghost}, we know that $y \in \mathbb{Z}$  is in fact $0 \in \mathbb{Z}$. Hence $x=0$.
 
-To see (2) we use Lemma \ref{Lem:Lemma1} part 1 or directly: Take any non-compact ghost projection $p \in K_{0}(I_{G})$, which does not lie in the image of $\mathbb{Z}$. Push this element to $q \in K_{0}(C^{*}_{r}(G(X))$. Assume for a contradiction that $\mu$ is surjective. Then there is an element $x \in \mathbb{Z}$ that maps to $q$, and so $d_{*}(q)=0$, as the image of compact operators lies in the kernel of the map $d_{*}$. However, we know that $d_{*}(q)=d_{*}(p)$ is certainly non-zero.
+To see (2): Take any non-compact ghost projection $p \in K_{0}(I_{G})$, which does not lie in the image of $\mathbb{Z}$. Push this element to $q \in K_{0}(C^{*}_{r}(G(X))$. Assume for a contradiction that $\mu$ is surjective. Then there is an element $x \in \mathbb{Z}$ that maps to $q$, and so $d_{*}(q)=0$, as the image of compact operators lies in the kernel of the map $d_{*}$. However, we know that $d_{*}(q)=d_{*}(p)$ is certainly non-zero.
 \end{proof}
 
 \subsection{Some Remarks on the Max Conjecture.}
@@ -997,12 +876,7 @@ K_{1}^{top}(G(X)|_{\partial\beta X}) \ar[r] \ar[u]& K_{0}^{top}(X \times X) \ar[
 Both parts follow from a diagram chase.
 \end{proof}
 
-
-This result captures completely \cite[Corollary 4.18]{MR2568691}, but the proof is very much more elementary.
-
-Additionally, it is clear that the argument above also works in the case of injectivitiy, which is related to the content of \cite[Theorem 5.1]{MR2431253}.
-
-\section{A counterexample to the conjecture.}
+This result captures completely \cite[Corollary 4.18]{MR2568691}, but the proof is very much more elementary. It is also clear that the argument above also works in the case of injectivity, which is related to the content of \cite[Theorem 5.1]{MR2431253}.
 
 \section{A Counterexample to the Boundary Conjecture}
 
