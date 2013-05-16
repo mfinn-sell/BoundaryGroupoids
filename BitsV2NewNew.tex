@@ -1,35 +1,3 @@
-\begin{lemma}\label{Lem:ParFree}
-The partial action of $F_{k}$ defined above extends to $\beta X$ and is free on the boundary $\partial \beta X$.
-\end{lemma}
-\begin{proof}
-Fix $g \in F_{k}$. As the sequence of graphs has large girth there exists an $i_{g} \in \mathbb{N}$ such that for all $i\geq i_{g}$ $\theta_{g}^{i}$ has no fixed points.  Let $\omega \in \widehat{D}_{\theta_{g}^{*}\theta_{g}}$ and assume for a contradiction that $\theta_{g}(\omega)=\omega$. Consider the graph $G$ with vertex set $V=\sqcup_{i\geq i_{g}} X_{i}$, where two vertices $x$ and $y$ are joined by an edge if and only if $y=\theta_{g}(x)$. This graph will have degree at most 2. Additionally, the set of non-isolated vertices inside $V$ contains $D_{\theta_{g}^{*}\theta_{g}}$ and so the subgraph with vertex set consisting of the non-isolated vertices and the same edge set is chosen by $\omega$ and has degree at most 2. Any such graph can be at most $3$ coloured, subsequently the vertex set breaks into three disjoint pieces $V_{1}, V_{2}$ and $V_{3}$ and the ultrafilter $\omega$ will pick precisely one of the $V_{i}$. The action of $\theta_{g}$ sends $V_{i}$ into $V_{i+1}$ modulo $3$ by construction. Lastly, $V_{i} \in \omega$ implies $V_{i+1} \in \theta_{g}(\omega)=\omega$, which is a contradiction.
-\end{proof}
-
-#########################################
-
-\begin{proposition}\label{Prop:Ghost}
-Let $\lbrace X_{i} \rbrace_{i\in \mathbb{N}}$ be a sequence of finite graphs. The the following hold for the space of graphs $X$:
-\begin{enumerate}
-\item The induced map $i_{*}:K_{*}(\mathcal{K}(\ell^{2}(X,\mathcal{K})) \rightarrow K_{*}(C^{*}X)$ is injective.
-\item If $X$ is an expander then $K_{*}^{top}(X\times X)\cong K_{*}(\mathcal{K}(\ell^{2}(X)) \rightarrow K_{*}(I_{G})$ is not surjective.
-\end{enumerate}
-\end{proposition}
-\begin{proof}
-Consider the coarse map $X=\sqcup_{i} X_{i} \rightarrow P:=\sqcup_{i} \ast$ given by projecting each factor to a point and $P$ carries the coarse disjoint union metric. This induces a tracelike map on the K-theory of $C^{*}X$, which we denote by $Tr$. Observe also that $C^{*}P \cong \ell^{\infty}(P,\mathcal{K})+\mathcal{K}(\ell^{2}(P,\mathcal{K}))$, hence has $K_{0}(C^{*}P) \cong \prod \frac{\mathbb{Z}}{K}$, where $K$ is the subgroup of $\bigoplus \mathbb{Z}$ of elements with sum equal to 0. Now:
-
-To prove (1), Observe that the following diagram commutes:
-\begin{equation*}
-\xymatrix{ K_{0}(C^{*}X) \ar[r]& \frac{\mathbb{Z}}{K}\\
-K_{0}(\mathcal{K}) \ar[ur]\ar[ul]
-}
-\end{equation*}
-Where the image of a rank one projection in $K_{0}(\mathcal{K})$ is given by a vector $(1,0,...)$, which is certainly injection. It now follows that the upward map is injective.
-
-For (2) consider a nontrivial ghost projection $p \in I_{G}$. It is well known that $Tr([p]) \not\in \bigoplus \mathbb{Z}$, whilst $Tr([k]) \in \bigoplus(\mathbb{Z})$ for any compact operator \cite{explg1}. As these differ under $Tr$, they cannot possibly be equal in $K_{0}(I_{G})$.
-\end{proof}
-
-########################################
-
 We present a new approach to study the coarse Baum-Connes conjecture for spaces of graphs of bounded geometry, specifically providing new insight into counterexamples from \cite{higsonpreprint,MR1911663,explg1}. Recall that the coarse Baum-Connes conjecture states that a certain assembly map:
 \begin{equation*}
 \mu_{X,red}:KX_{*}(X) \longrightarrow K_{*}(C^{*}(X))
@@ -70,3 +38,40 @@ Conjecture \ref{MC:S1} is true for the following classes of spaces:
 This theorem allows us to recover all known information about spaces of the form $X = \sqcup X_{i}$ for sequences of finite graphs $\lbrace X_{i} \rbrace$. Remarkably this includes some examples of groups with property (T), whose box spaces have geometric property (T) introduced by Willett and Yu in \cite{explg2}.
 
 In the last section of this paper we provide a counterexample to the boundary coarse Baum-Connes conjecture defined in conjecture \ref{MC:S1}. We now recap all the major themes.
+
+
+#################################################################################
+
+The coarse Baum-Connes conjecture for metric spaces plays a central role in answering positively certain topological and group theoretic problems; it implies a positive solution to the Novikov conjecture for finitely generated discrete groups \ref{} and gives an answer to questions about positive scalar curvature metrics on manifolds \ref{}. It is well known that this conjecture has counterexamples \ref{} in the class of coarsely disconnected spaces.
+
+In this paper we introduce a new conjecture associated to uniformly discrete bounded geometry metric spaces that is tailored to studying coarsely disconnected spaces and attempts to describe their asymptotic geometry. Phrased in terms of a certain Baum-Connes conjecture for a naturally constructed groupoid, it asks if:
+
+is an isomorphism. We call this conjecture the boundary coarse Baum-Connes conjecture and we introduce it fully in Section \ref{}. The idea here is that this conjecture should be easier to prove in those instances that the coarse Baum-Connes conjecture fails.
+
+The primary objective of the first half of this paper is to prove this conjecture for certain coarsely disconnected spaces:
+
+\begin{thm}
+The boundary coarse Baum-Connes conjecture holds for the following classes of coarsely disconnected spaces:
+\begin{enumerate}
+\item box spaces of finitely generated coarsely embeddable groups;
+\item coarse disjoint unions constructed from sequences of finite graphs with large girth and uniformly bounded above regularity.
+\end{enumerate}
+\end{thm}
+
+The first point is an easy observation outlined in Section \ref{}, however the second point is rather more interesting and relies on carefully studying the natural geometry of large girth sequences to produce a \texit{partial action} of free group. These ideas are covered in Section \ref{}.
+
+The second objective of this paper is to connect the boundary coarse Baum-Connes conjecture, via homological methods, to the coarse Baum-Connes conjecture. Using this machinery we give elementary proofs of many of the counterexample arguments from \cite{} as well as many results concerning classes of expander graphs present in the literature \cite{}; in particular in Section \ref{} we give an elementary proof of results of Willett and Yu \cite{} concerning large girth sequences:
+
+\begin{thm}
+Let $X$ be a space of graphs constructed from a sequence of finite graphs with large girth. Then:
+\begin{enumerate}
+\item the coarse Baum-Connes assembly map is injective for $X$
+\item If $X$ comes from an expanding sequence then the coarse Baum-Connes assembly map for $X$ is not surjective.
+\end{enumerate}
+\end{thm} 
+
+Finally in Section \ref{} we give a counterexample to the boundary coarse Baum-Connes conjecture by considering a space introduced by Wang \cite{} and adaptions of the counterexample arguments present in the literature:
+
+\begin{thm}
+There is a space $Y$ constructed from a box space of $SL_{2}(\mathbb{Z})$ for which the boundary coarse Baum-Connes assembly map is injective but fails to be surjective.
+\end{thm}
