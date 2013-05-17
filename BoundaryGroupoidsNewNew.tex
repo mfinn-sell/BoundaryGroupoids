@@ -65,70 +65,56 @@ We present a new approach to studying expander sequences with large girth, provi
 \maketitle
 
 \section{Introduction and Outline}
+The coarse Baum-Connes conjecture for metric spaces plays a central role in answering positively certain topological and group theoretic problems \cite{MR1388312}; it implies a positive solution to the Novikov conjecture for finitely generated discrete groups \cite{MR1779613,MR1388300} and information about the existence of positive scalar curvature metrics on spin manifolds \cite{MR1388300,MR1817560}. It is well known that this conjecture has counterexamples \cite{MR1817560,higsonpreprint,explg1} in the class of coarsely disconnected spaces.
 
-We present a new approach to study the coarse Baum-Connes conjecture for spaces of graphs of bounded geometry, specifically providing new insight into counterexamples from \cite{higsonpreprint,MR1911663,explg1}. Recall that the coarse Baum-Connes conjecture states that a certain assembly map:
+In this paper we introduce a new conjecture associated to uniformly discrete bounded geometry metric spaces that is tailored to studying the geometry of coarsely disconnected spaces by utilising their asymptotic geometry. Phrased in terms of a certain Baum-Connes conjecture for a naturally constructed groupoid:
+
+\begin{conj} [Boundary Coarse Baum-Connes Conjecture]
+Let $X$ be a unformly discrete bounded geometry metric space. Then the assembly map:
 \begin{equation*}
-\mu_{X,red}:KX_{*}(X) \longrightarrow K_{*}(C^{*}(X))
-\end{equation*}
-is an isomorphism for $X$ a uniformly discrete bounded geometry metric space. This conjecture is a geometric intrepretation of the well-known \textit{Baum-Connes conjecture} \cite{MR1292018}. For finitely generated groups the Cayley graph coming from some finite generating set will be a uniformly discrete space with bounded geometry, and a positive result for the coarse Baum-Connes conjecture in such situations has strong implications such as the Strong Novikov conjecture \cite{MR866507}, or the existence of metrics with positive scalar curvature.
-
-The Baum-Connes conjecture can be developed in other directions, particularly into the realm of topological groupoids \cite{MR1798599}, which arise naturally in topology and noncommutative geometry to study objects such as foliations on manifolds or group actions on topological spaces. It is a well known result from \cite{MR1905840} that the above statement of the coarse Baum-Connes conjecture can be replaced with a conjecture with coefficients for some groupoid $G(X)$ that we can associate to any uniformly discrete bounded geometry metric space.
-
-In this context, the coarse Baum-Connes conjecture states that the map:
-\begin{equation*}
-\mu_{r}:K_{*}^{top}(G(X), \ell^{\infty}(X,\mathcal{K})) \rightarrow K_{*}(\ell^{\infty}(X,\mathcal{K})\rtimes_{r}G(X))
-\end{equation*}
-is an isomorphism. In the paper \cite{MR1911663}, counterexamples were constructed for the coarse groupoid when the space was a \textit{expander graph} \cite{MR2569682}. This class of spaces has subsequently been well studied with respect to the coarse Baum-Connes conjecture \cite{higsonpreprint,MR2431253,MR2419930,MR2764895,MR2568691,explg1,explg2}. The key property associated to expander graphs is the ability to construct \textit{ghost projections} in the Roe algebra. These are infinite rank projections that cannot be approximated well by operators of very small propagation as they have essentially no local information. 
-
-In the paper \cite{MR1911663} the method for constructing counterexamples to the conjecture for groupoids utilised a ``short exact sequence'' built from reductions of a groupoid -the main idea was that this sequence, whilst always exact for the maximal $C^{*}$-algebras of these groupoids may fail to be exact when we consider the left regular representation. The spotlight in \cite{MR1911663} was on the original groupoid, not the reductions, whilst in this paper we are going to consider specifically the groupoids that arise from reductions to \textit{boundaries} of the unit space. 
-
-The object of this paper to give elementary proofs of many of these results concerning \textit{box spaces} of residually finite groups as well as proving a strengthened geometric version of the main results of Willett and Yu in \cite{explg1,explg2}. We obtain this framework by revisiting the ideas of \cite{MR1911663,MR1905840} and by introducing a boundary conjecture associated to a uniformly discrete bounded geometry metric space $X$:
-\begin{conjecture}(Boundary Coarse Baum-Connes conjecture)\label{MC:S1}
-Let $X$ be a uniformly discrete bounded geometry metric space and let $G(X)$ be the associated coarse groupoid on $X$. Then:
-\begin{equation*}
-\mu_{X,bdry}:K_{*}^{top}(G(X)|_{\partial\beta X}, l^{\infty}(X,\mathcal{K})/C_{0}(X,\mathcal{K})) \rightarrow K_{*}((l^{\infty}(X,\mathcal{K})/C_{0}(X,\mathcal{K}))\rtimes_{r}G(X)|_{\partial\beta X})
+\mu_{bdry}:K_{*}^{top}(G(X)|_{\partial\beta X}, A_{\partial}) \rightarrow K_{*}(A_{\partial}\rtimes_{r}G(X)|_{\partial\beta X})
 \end{equation*}
 is an isomorphism.
-\end{conjecture}
+\end{conj}
 
-The intuition behind this conjecture is to quotient out by the ghost operators in the Roe algebra and then consider the K-theory of what remains. We formalise this idea in section \ref{Sect:CE}.
+The coefficient algebra $A_{\partial}$ in the conjecture above is related to the asymptotic geometry of $X$ and occurs in the work of Yu and Oyono-Oyono \cite{MR2568691}. The idea here is that this conjecture should be easier to prove in those instances that the coarse Baum-Connes conjecture fails.
 
-Now consider a space $X = \sqcup X_{i}$ constructed from a sequence of finite graphs $\lbrace X_{i}\rbrace$. The boundary coarse Baum-Connes conjecture for $X$ in this instance allows us, via the Five Lemma and \cite[Lemma 9]{MR1905840}, to conclude the coarse Novikov conjecture for $X$. We illustrate how this setting can be adapted to provide new proofs of results in \cite{explg1} concerning large girth expanders as well as the result of \cite[Theorem 5.7]{MR2764895} concerning box spaces of linear groups. The maximal conjecture is also considered thereby allowing us to get a new proof a Theorem of \cite{MR2431253,MR2419930,MR2568691}. This relationship makes it desirable to understand for which sequences this boundary conjecture is an isomorphism and to that end we prove:
+The primary objective of the first half of this paper is to prove this conjecture for certain coarsely disconnected spaces:
 
-\begin{theorem}\label{MT:S1}
-Conjecture \ref{MC:S1} is true for the following classes of spaces:
+\begin{thm}
+The boundary coarse Baum-Connes conjecture holds for the following classes of coarsely disconnected spaces:
 \begin{enumerate}
-\item Sequences of spaces that uniformly uniformly embed into Hilbert Space. 
-\item Sequences of spaces that have large girth and uniformly bounded vertex degree.
-\item Generalised Box Spaces associated to finitely generated groups with the Strong Baum-Connes Property.
+\item box spaces of finitely generated a-T-menable groups;
+\item coarse disjoint unions constructed from sequences of finite graphs with large girth and uniformly bounded above regularity.
 \end{enumerate}
-\end{theorem}
-This theorem allows us to recover all known information about spaces of the form $X = \sqcup X_{i}$ for sequences of finite graphs $\lbrace X_{i} \rbrace$. Remarkably this includes some examples of groups with property (T), whose box spaces have geometric property (T) introduced by Willett and Yu in \cite{explg2}.
+\end{thm}
 
-In the last section of this paper we provide a counterexample to the boundary coarse Baum-Connes conjecture defined in conjecture \ref{MC:S1}. We now recap all the major themes.
+The first point is an easy observation outlined in Section \ref{Sect:CE}, however the second point is rather more interesting and relies on carefully studying the natural geometry of large girth sequences to produce a \texit{partial action} of free group \cite{MR2041539}. These ideas are covered in Section \ref{Sect:S3}.
+
+The second objective of this paper is to connect the boundary coarse Baum-Connes conjecture, via homological methods, to the coarse Baum-Connes conjecture. Using this machinery we give elementary proofs of many of the counterexample arguments from \cite{MR1911663,higsonpreprint,explg1} as well as many results concerning classes of expander graphs present in the literature \cite{MR2419930,MR2764895,MR2568691}; in particular in Section \ref{Sect:apps} we give an elementary proof of results of Willett and Yu \cite{explg1} concerning large girth sequences:
+
+\begin{thm}
+Let $X$ be a space of graphs constructed from a sequence of finite graphs with large girth. Then:
+\begin{enumerate}
+\item the coarse Baum-Connes assembly map is injective for $X$.
+\item If $X$ comes from an expanding sequence then the coarse Baum-Connes assembly map for $X$ is not surjective.
+\end{enumerate}
+\end{thm} 
+
+Finally in Section \ref{Sect:Counter} we give a counterexample to the boundary coarse Baum-Connes conjecture by considering a space introduced by Wang \cite{MR2363697} and adaptions of the counterexample arguments present in the literature:
+
+\begin{thm}
+There is a space $Y$ constructed from a box space of $SL_{2}(\mathbb{Z})$ for which the boundary coarse Baum-Connes assembly map is injective but fails to be surjective.
+\end{thm}
 
 \subsection{Acknowledgements}
-The first author wishes to thank the second author, his supervisor, for his unending patience and support, and Rufus Willett for carefully reading the first drafts.
+The first author wishes to thank the second author, his supervisor, for his unending patience and support and Rufus Willett for carefully reading the first drafts.
 %Change the theorem labellings
 \numberwithin{theorem}{section}
 
 \subsection{Groupoids, expanders and the coarse Baum-Connes conjecture.}\label{Sect:GO}
-\begin{definition}\label{def:grpoid2} A \textit{groupoid} is a small category in which every arrow is invertible, that is a set $\G$ equipped with the following information:
-\begin{enumerate}
-\item A subset $\G^{(0)}$ consisting of the objects of $\G$, denote the inclusion map by $i: \G^{(0)}\hookrightarrow \G$. 
-\item Two maps, $r$ and $s: \G  \rightarrow \G^{(0)}$ such that $r\circ i = s \circ i = Id$ 
-\item An involution map $^{-1}:\G \rightarrow \G$ such that $s(g)=r(g^{-1})$
-\item A partial product $\G^{(2)} \rightarrow \G$ denoted $(g,h) \mapsto gh$, with $\G^{(2)}=\lbrace (g,h) \in \G \times \G | s(g)=r(h) \rbrace\subseteq \G\times \G$ being the set of composable pairs.
-\end{enumerate}
-Moreover we ask the following:
-\begin{itemize}
-\item The product is associative where it is defined in the sense that for any pairs: 
-\begin{equation*}
-(g,h),(h,k)\in \G^{(2)} \mbox{ we have }(gh)k \mbox{ and } g(hk) \mbox{ defined and equal}.
-\end{equation*}
-\item For all $g \in \G$ we have $r(g)g=gs(g)=g$.
-\end{itemize}
-\end{definition}
+In this section we recall some definitions and results from the literature that will appear within the text. We begin with groupoids by focusing on certain relevant examples.
+
 A groupoid is \textit{principal} if $(r,s): \G \rightarrow \G^{(0)} \times \G^{(0)}$ is injective and \textit{transitive} if $(r,s)$ is surjective. A groupoid $\G$ is a \textit{topological groupoid} if both $\G$ and $\G^{(0)}$ are topological spaces, and the maps $r,s, ^{-1}$ and the composition are all continuous. A Hausdorff, locally compact topological groupoid $\G$ is \textit{proper} if $(r,s)$ is a proper map and \textit{\'etale} or \textit{r-discrete} if the map $r$ is a local homeomorphism. When $\G$ is \'etale, $s$ and the product are also local homeomorphisms, and $\G^{(0)}$ is an open subset of $\G$.
 
 \begin{definition}
@@ -160,7 +146,10 @@ Let $X$ be a topological $\Gamma$-space. Then the \textit{transformation groupoi
 The construction in the example above can be generalized to actions of \'etale groupoids. We are concerned with the topology here: Given an \'etale groupoid $\G$ and a $\G$-space $X$ as well as a with a basis $\lbrace U_{i} \rbrace$ for $\G^{(0)}$. We can pull this basis back to a basis for $X \rtimes \G$ given by $[r_{z}^{-1}(U_{i}),\gamma]$, where $U_{i} \subseteq s(\gamma)$.
 \end{example}
 
-\begin{example}Let $X$ be a coarse space with uniformly locally finite, weakly connected coarse structure $\mathcal{E}$. Define $G(X):=\cup_{E\in \mathcal{E}}\overline{E}.$ Then $G(X)$ is a locally compact, \'etale groupoid with the induced product, inverse and topology from $\beta X \times \beta X$.
+\begin{example}Let $X$ be a coarse space with uniformly locally finite, weakly connected coarse structure $\mathcal{E}$. Define $G(X):=\cup_{E\in \mathcal{E}}\overline{E}.$ Then $G(X)$ is a locally compact, \'etale groupoid with the induced product, inverse and topology from $\beta X \times \beta X$. Explicitly, the topology on this groupoid is induced from the following result:
+\begin{lemma}\label{Lem:CorRoe}\cite[Corollary 10.18]{MR2007488}
+Let $X$ be a uniformly discrete bounded geometry metric space and let $E$ be any entourage. Then the inclusion $E \rightarrow X \times X$ extends to an injective homeomorphism $\overline{E} \rightarrow \beta X \times \beta X$, where $\overline{E}$ denotes the closure of $E$ in $\beta(X \times X)$.
+\end{lemma}
 \end{example}
 As we are considering the metric coarse structure we can reduce this to considering only generators:
 \begin{equation*}
@@ -196,11 +185,11 @@ For an expander $X$ we have $spectrum(\Delta) \subseteq \lbrace 0 \rbrace \cup [
 \begin{equation*}
 p = \lim_{t \rightarrow \infty}e^{-t\Delta}
 \end{equation*}
-The spectral gap in $spectrum(\Delta)$ tells us that this limit converges in the strong operator topology and is a projection associated to the $0 \in spectrum(\Delta)$. $p$ is the kernel of $\Delta$, and is one method of producing the projection onto the constant functions on each $X_{i}$. In fact this projection breaks up as:
+The spectral gap in $spectrum(\Delta)$ tells us that this limit converges in the strong operator topology and is a projection associated to the $0 \in spectrum(\Delta)$. $p$ is the kernel of $\Delta$; one method of producing this is by considering the projection onto the constant functions on each $X_{i}$. This gives a decomposition:
 \begin{equation*}
 p=\prod_{i}p^{(i)}
 \end{equation*}
-But the key point is that it is an element of $C^{*}X$ (in fact an element of $\mathbb{C}[X]$), and each $p^{(i)}$ is the projection onto the constant functions in $\ell^{2}(X_{i})$. 
+But the key point is that it is an element of $C^{*}X$ as $C^{*}$-algebras are closed under functional calculus.
 \end{remark}
 The following notion is due to Guoliang Yu (unpublished):
 
@@ -208,11 +197,11 @@ The following notion is due to Guoliang Yu (unpublished):
 An operator $T \in C^{*}X$ is a \textit{ghost operator} if $\forall \epsilon >0$ there exists a bounded subset $B \subset X\times X$ such that the norm: $\Vert T_{xy} \Vert \leq \epsilon$ for all $(x,y) \in (X\times X) \setminus B$.
 \end{definition}
 
-The kernel $p$ of the Laplacian $\Delta$ is a ghost operator.
+It is clear, from the definition as a product given above, that the kernel $p$ of the Laplacian $\Delta$ is a ghost operator.
 
-\section{The boundary coarse Baum-Connes conjecture.}\label{Sect:CE}
+\section{The Boundary Coarse Baum-Connes Conjecture.}\label{Sect:CE}
 
-Throughout this section let $G$ be an \'etale, Hausdorff locally compact topological groupoid. These are essentially unnecessary assumptions but we will only require groupoids in this class to fit with the coarse picture we are interested in. We outline the main concept introduced in \cite{MR1911663}. 
+Throughout this section let $G$ be an \'etale, Hausdorff locally compact topological groupoid. For what we outline below these are essentially unnecessary assumptions, however our focus on the coarse groupoid leads us to study this class. We outline the main concept introduced in \cite{MR1911663}. 
 
 \begin{definition}
 A subset of $F\subseteq G^{(0)}$ is said to be \textit{saturated} if for every element of $\gamma \in G$ with $s(\gamma) \in F$ we have $r(\gamma) \in F$. For such a subset we can form subgroupoid of $G$, denoted by $G_{F}$ which has unit space $F$ and $G_{F}^{(2)}=\lbrace \gamma \in G | s(\gamma) \mbox{ and } r(\gamma) \in F \rbrace$.
@@ -320,17 +309,19 @@ As the coronas are disjoint, for any $\gamma \in G(X)$ it is possible to find a 
 It remains to consider the topology. For each $g\in \Gamma$, the map from $\partial \beta X \rtimes \Gamma$ to $G(X)_{\partial\beta X}$ on the piece $[\partial\beta X,g]$ is a homeomorphism as $\overline{\Delta_{g}}\setminus\Delta_{g}$ can be identified with $\partial\beta X$, induced by the source map or range map. Hence the map takes clopen sets to clopen sets; these form a basis for the topology of $G(X)|_{\partial\beta X}$ and so the map is a global homeomorphism.
 \end{proof}
 
-\begin{example}(Generalised Box spaces)
-Let $\Gamma$ be a finitely generated residually finite group and let $\lbrace N_{i}\rbrace$ be a family of finite index normal subgroups such that $N_{i}\leq N_{i+1}$, $\bigcap_{i \in \mathbb{N}}N_{i}=1$ and a fixed generating set $S$. Then the sequence of groups $\lbrace \Gamma/N_{i}\rbrace$ with generating sets $\pi_{i}(S)$ admits an action via quotient maps. Let $\square\Gamma= \sqcup_{i \in \mathbb{N}}\frac{\Gamma}{N_{i}}$, equipped with a metric that restricts to the metric induced from the generating sets $\pi_{i}(S)$ for each $i$, and has the property that $d(\frac{\Gamma}{N_{i}},\frac{\Gamma}{N_{j}})\rightarrow \infty$ as $i+j \rightarrow \infty$. This is called a \textit{box space} for $\Gamma$. The Stone-\u{C}ech boundary admits a free action of the group and the metric structure is generated at infinity by the quotients maps and the right action of the group via these maps. Proposition \ref{Prop:Crit} then provides a description of the boundary groupoid. This process did not require a normal subgroup; Box spaces can constructed using Schreier quotients.
+\begin{example}(Box spaces)
+Let $\Gamma$ be a finitely generated residually finite group and let $\lbrace N_{i}\rbrace$ be a family of finite index normal subgroups such that $N_{i}\leq N_{i+1}$, $\bigcap_{i \in \mathbb{N}}N_{i}=1$ and a fixed generating set $S$. Then the sequence of groups $\lbrace \Gamma/N_{i}\rbrace$ with generating sets $\pi_{i}(S)$ admits an action via quotient maps. Let $\square\Gamma= \sqcup_{i \in \mathbb{N}}\frac{\Gamma}{N_{i}}$, equipped with a metric that restricts to the metric induced from the generating sets $\pi_{i}(S)$ for each $i$, and has the property that $d(\frac{\Gamma}{N_{i}},\frac{\Gamma}{N_{j}})\rightarrow \infty$ as $i+j \rightarrow \infty$. This is called a \textit{box space} for $\Gamma$. The Stone-\u{C}ech boundary admits a free action of the group and the metric structure is generated at infinity by the quotients maps and the right action of the group via these maps. Proposition \ref{Prop:Crit} then provides a description of the boundary groupoid and converts the boundary conjecture into a case of the Baum-Connes conjecture with coefficients for $\Gamma$.
+
+This process did not require a normal subgroup; box spaces can constructed using Schreier quotients. The conditions on the subgroups change to reflect the absence of normality. Let $\Gamma$ be a residually finite group and let $\lbrace H_{i} \rbrace$ be a family of nested subgroups of finite index with trivial intersection, and additionally satisfying: each $g \in \Gamma$ belongs to only finitely many conjugates of the subgroups from the family $\lbrace H_{i} \rbrace$. Fixing a left invariant metric on $\Gamma$ the box space can be constructed using the left quotients of $\Gamma$ by the $H_{i}$. In this instance these spaces are graphs with no left action of $\Gamma$. However they do retain a right action of $\Gamma$ that determines the metric at infinity and becomes free on the boundary (this is due to the additional constraint concerning conjugates of the $H_{i}$).
 \end{example}
 
-\section{A Proof of the Conjecture for Spaces of Graphs with Large Girth.}\label{Sect:MR}
+\section{A Proof of the Boundary Conjecture for Spaces of Graphs with Large Girth.}\label{Sect:MR}
 The aim of this section is to prove the following result:
 \begin{thm}
 The boundary coarse Baum-Connes conjecture holds for spaces of graphs with large girth and uniformly bounded vertex degree.
 \end{thm}
 
-For this result we will need a weaker notion of action; We construct a partial action \cite{} of $F_{k}$ for some finite $k$. Using a stronger version of Proposition \ref{Prop:Crit} we will show that the boundary groupoid $G(X)|_{\partial\beta X}$ is a transformation groupoid $\partial\beta X \rtimes \G_{\widehat{X}}$ for some \'etale groupoid $\G_{\widehat{X}}$. As before, this converts the boundary Baum-Connes conjecture into a special case of Baum-Connes with coefficients for the groupoid $\G_{\widehat{X}}$. Lastly, we construct a continuous, proper groupoid homomorphism from $\G_{\widehat{X}}$ to $F_{k}$, which we use to transfer the Haagerup property from $F_{k}$ to the groupoid $\G_{\widehat{X}}$. This will complete the proof.
+For this result we will need a weaker notion of action; We construct a partial action of $F_{k}$ for some finite $k$. Using a stronger version of Proposition \ref{Prop:Crit} we will show that the boundary groupoid $G(X)|_{\partial\beta X}$ is a transformation groupoid $\partial\beta X \rtimes \G_{\widehat{X}}$ for some \'etale groupoid $\G_{\widehat{X}}$. As before, this converts the boundary Baum-Connes conjecture into a special case of Baum-Connes with coefficients for the groupoid $\G_{\widehat{X}}$. Lastly, we construct a continuous, proper groupoid homomorphism from $\G_{\widehat{X}}$ to $F_{k}$, which we use to transfer the Haagerup property from $F_{k}$ to the groupoid $\G_{\widehat{X}}$. This will complete the proof.
 
 As noted above we want to consider partial actions of a group $\Gamma$ on a space $X$. This means that the elements of $\Gamma$ give rise to partial bijections of $X$, i.e bijections between subsets of $X$. These partial bijections are algebraically encoded within an inverse semigroup, and the partial action of $\Gamma$ is a \textit{dual prehomomorphism} from $\Gamma$ into that semigroup.
 
@@ -712,9 +703,6 @@ We complete the proof by observing that for each $\theta_{g} \in A_{fin}$ the se
 \begin{lemma}\label{Lem:ParFree}
 The partial action of $F_{k}$ defined above extends to $\beta X$ and is free on the boundary $\partial \beta X$.
 \end{lemma}
-\begin{lemma}\label{Lem:ParFree}
-The partial action of $F_{k}$ defined above extends to $\beta X$ and is free on the boundary $\partial \beta X$.
-\end{lemma}
 \begin{proof}
 Fix $g \in F_{k}$. As the sequence of graphs has large girth there exists an $i_{g} \in \mathbb{N}$ such that for all $i\geq i_{g}$ $\theta_{g}^{i}$ has no fixed points.  Let $\omega \in \widehat{D}_{\theta_{g}^{*}\theta_{g}}$ and assume for a contradiction that $\theta_{g}(\omega)=\omega$. Consider the graph $G$ with vertex set $V=\sqcup_{i\geq i_{g}} X_{i}$, where two vertices $x$ and $y$ are joined by an edge if and only if $y=\theta_{g}(x)$. This graph will have degree at most 2. Additionally, the set of non-isolated vertices inside $V$ contains $D_{\theta_{g}^{*}\theta_{g}}$ and so the subgraph with vertex set consisting of the non-isolated vertices and the same edge set is chosen by $\omega$ and has degree at most 2. Any such graph can be at most $3$ coloured, subsequently the vertex set breaks into three disjoint pieces $V_{1}, V_{2}$ and $V_{3}$ and the ultrafilter $\omega$ will pick precisely one of the $V_{i}$. The action of $\theta_{g}$ sends $V_{i}$ into $V_{i+1}$ modulo $3$ by construction. Lastly, $V_{i} \in \omega$ implies $V_{i+1} \in \theta_{g}(\omega)=\omega$, which is a contradiction.
 \end{proof}
@@ -767,7 +755,7 @@ Combining the results in the previous section we know that a free group of rank 
 We can now conclude the Theorem by remarking that the isomorphism of groupoids $G(X)|_{\partial\beta X} \\ \cong \partial\beta X \rtimes \G_{\widehat{X}}$ turns the Baum-Connes conjecture for $G(X)|_{\partial\beta X}$ into a specific case of the Baum-Connes conjecture for $\G_{\widehat{X}}$. As $\G_{\widehat{X}}$ has the Haagerup property we can conclude that the Baum-Connes assembly map with any coefficients is an isomorphism \cite{MR1798599} and so the assembly map required for the boundary conjecture is also an isomorphism.
 \end{proof}
 
-\section{Applications to the coarse Baum-Connes conjecture.}
+\section{Applications to the coarse Baum-Connes conjecture.}\label{Sect:apps}
 In this section we capture, via homological methods, all the known counterexample arguments present in the literature using the boundary conjecture. We begin by confirming that the kernel $I$ constructed in section \ref{Sect:CE} is the ghost ideal $I_{G}$. In order to prove this we need some technology of \cite{MR1911663}:
 
 \begin{lemma}\label{Lem:Lemma9}\cite[Lemma 9]{MR1911663}
@@ -854,7 +842,7 @@ $$
 $$
 We prove (1) by considering an element $x \in K_{0}^{top}(G(X))$ such that $\mu(x)=0$. Then $x$ maps to $0\in K_{0}^{top}(G(X)|_{\partial\beta X})$ and so comes from an element $y \in \mathbb{Z}$. Each square commutes hence $y$ maps to $0 \in K_{0}(C^{*}_{r}(G(X))$. As the composition up and left (as indicated in the diagram) is injective by Proposition \ref{Prop:Ghost}, we know that $y \in \mathbb{Z}$  is in fact $0 \in \mathbb{Z}$. Hence $x=0$.
 
-To see (2): Take any non-compact ghost projection $p \in K_{0}(I_{G})$, which does not lie in the image of $\mathbb{Z}$. Push this element to $q \in K_{0}(C^{*}_{r}(G(X))$. Assume for a contradiction that $\mu$ is surjective. Then there is an element $x \in \mathbb{Z}$ that maps to $q$, and so $d_{*}(q)=0$, as the image of compact operators lies in the kernel of the map $d_{*}$. However, we know that $d_{*}(q)=d_{*}(p)$ is certainly non-zero.
+To see (2): take any non-compact ghost projection $p \in K_{0}(I_{G})$, which does not lie in the image of $\mathbb{Z}$ as it does not vanish under the trace $d_{*}$. Push this element to $q \in K_{0}(C^{*}_{r}(G(X))$. Assume for a contradiction that $\mu$ is surjective. Then there is an element $x \in \mathbb{Z}$ that maps to $q$, and so $d_{*}(q)=0$, as the image of compact operators lies in the kernel of the map $d_{*}$. However, we know that $d_{*}(q)=d_{*}(p)$ is certainly non-zero.
 \end{proof}
 
 \subsection{Some Remarks on the Max Conjecture.}
@@ -878,7 +866,7 @@ Both parts follow from a diagram chase.
 
 This result captures completely \cite[Corollary 4.18]{MR2568691}, but the proof is very much more elementary. It is also clear that the argument above also works in the case of injectivity, which is related to the content of \cite[Theorem 5.1]{MR2431253}.
 
-\section{A Counterexample to the Boundary Conjecture}
+\section{A Counterexample to the Boundary Conjecture}\label{Sect:Counter}
 
 In this section we outline the construction of a space for which the boundary Baum-Connes conjecture fails to be surjective. The construction of the space we outline below first appeared in \cite{MR2363697}.
 
