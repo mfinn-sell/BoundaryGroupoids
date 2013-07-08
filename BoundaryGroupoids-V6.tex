@@ -21,12 +21,11 @@
 %Theorem styles.
 
 \theoremstyle{plain}
-\newtheorem{conj}{Conjecture}
-\newtheorem{theorem}{Theorem}%[section]
-\newtheorem{lemma}[theorem]{Lemma}%[section]
-\newtheorem{proposition}[theorem]{Proposition}%[section]
-\newtheorem{corollary}[theorem]{Corollary}%[section]
-\newtheorem{claim}[theorem]{Claim}%[section]
+\newtheorem{theorem}[]{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{claim}[theorem]{Claim}
 \newtheorem{question}[theorem]{Question}
 \newtheorem{conjecture}[theorem]{Conjecture}
 \newtheorem*{thm}{Theorem}
@@ -53,15 +52,15 @@
 \newcommand{\ucong}{\rotatebox{90}{$\cong$}}
 
 \title{Spaces of Graphs, Boundary Groupoids and the Coarse Baum-Connes Conjecture} 
-\date{June 2013}
+\date{July 2013}
 \author{Martin Finn-Sell \and Nick Wright}
-\email{Martin Finn-Sell: ms1205@soton.ac.uk \\ Nick Wright: N.J.Wright@soton.ac.uk}
+\email{Martin Finn-Sell: M.Finn-Sell@soton.ac.uk \\ Nick Wright: N.J.Wright@soton.ac.uk}
 
 
 \begin{document}
 \bibliographystyle{alpha}
 \begin{abstract}
-We present a new approach to studying expander sequences with large girth, providing new geometric interpretations of previously known results of Willett and Yu. This geometric approach works though defining a new conjecture that captures the geometric structure of such sequences of finite graphs, which we call the coarse boundary conjecture. This conjecture provides a unifying approach to studying the coarse assembly map associated to expander sequences and provides new elementary proofs of many of the classical results present in the literature.
+We introduce a new variant of the coarse Baum-Connes conjecture designed to tackle coarsely disconnected metric spaces called the boundary coarse Baum-Connes conjecture. We prove this conjecture for many coarsely disconnected spaces that are known to be counterexamples to the coarse Baum-Connes conjecture. In particular, we give a geometric proof of this conjecture for spaces of graphs that have large girth and bounded vertex degree. We then connect the boundary conjecture to the coarse Baum-Connes conjecture using homological methods, which allows us to exhibit all the current uniformly discrete counterexamples to the coarse Baum-Connes conjecture in an elementary way.
 \end{abstract}
 
 \maketitle
@@ -69,50 +68,50 @@ We present a new approach to studying expander sequences with large girth, provi
 \section{Introduction and Outline}
 The coarse Baum-Connes conjecture for metric spaces plays a central role in answering positively certain topological and group theoretic problems \cite{MR1388312}; it implies a positive solution to the Novikov conjecture for finitely generated discrete groups \cite{MR1779613,MR1388300} and information about the existence of positive scalar curvature metrics on spin manifolds \cite{MR1388300,MR1817560}. It is well known that this conjecture has counterexamples \cite{MR1817560,higsonpreprint,explg1} in the class of coarsely disconnected spaces.
 
-In this paper we introduce a new conjecture associated to uniformly discrete bounded geometry metric spaces that is tailored to studying the geometry of coarsely disconnected spaces by utilising their asymptotic geometry. For a space $X$ this conjecture is phrased in terms of a certain Baum-Connes conjecture for a naturally constructed groupoid called the boundary groupoid of $X$ and denoted $G(X)|_{\partial\beta X}$. 
-\begin{conj} [Boundary Coarse Baum-Connes Conjecture]
+In this paper we introduce a new conjecture associated to uniformly discrete bounded geometry metric spaces that is tailored to studying the geometry of coarsely disconnected spaces by utilising their asymptotic geometry. For a space $X$ this conjecture is phrased in terms of a certain Baum-Connes conjecture for a naturally constructed groupoid called the \textit{boundary groupoid} of $X$, which we denote by $G(X)|_{\partial\beta X}$. 
+\begin{conjecture} [Boundary Coarse Baum-Connes Conjecture]
 Let $X$ be a uniformly discrete bounded geometry metric space. Then the assembly map:
 \begin{equation*}
 \mu_{bdry}:K_{*}^{top}(G(X)|_{\partial\beta X}, A_{\partial}) \rightarrow K_{*}(A_{\partial}\rtimes_{r}G(X)|_{\partial\beta X})
 \end{equation*}
 is an isomorphism.
-\end{conj}
+\end{conjecture}
 
-The coefficient algebra $A_{\partial}$ in the conjecture above is related to the asymptotic geometry of $X$ and occurs in the work of Yu and Oyono-Oyono \cite{MR2568691}. The idea here is that this conjecture should be easier to prove in those instances that the coarse Baum-Connes conjecture fails.
+The coefficient algebra $A_{\partial}$ in the conjecture above is related to the asymptotic geometry of $X$ and occurs in the work of Yu and Oyono-Oyono \cite{MR2568691}. The idea here is that this conjecture should be easier to prove in those instances that the coarse Baum-Connes conjecture fails, an idea that we confirm during the first half of this paper. 
 
-The primary objective of the first half of this paper is to prove this conjecture for certain coarsely disconnected spaces:
+In particular we prove the following result:
 
-\begin{thm}
+\begin{theorem}
 The boundary coarse Baum-Connes conjecture holds for the following classes of coarsely disconnected spaces:
 \begin{enumerate}
 \item box spaces of finitely generated a-T-menable groups;
 \item coarse disjoint unions constructed from sequences of finite graphs with large girth and uniformly bounded above regularity.
 \end{enumerate}
-\end{thm}
+\end{theorem}
 
 The first point is an easy observation outlined in Section \ref{Sect:CE}, however the second point is rather more interesting and relies on carefully studying the natural geometry of large girth sequences to produce a \textit{partial action} of free group \cite{MR2041539}. These ideas are covered in Section \ref{Sect:S3}.
 
 The second objective of this paper is to connect the boundary coarse Baum-Connes conjecture, via homological methods, to the coarse Baum-Connes conjecture. Using this machinery we give elementary proofs of many of the counterexample arguments from \cite{MR1911663,higsonpreprint,explg1} as well as many results concerning classes of expander graphs present in the literature \cite{MR2419930,MR2764895,MR2568691}; in particular in Section \ref{Sect:apps} we give an elementary proof of results of Willett and Yu \cite{explg1} concerning large girth sequences:
 
-\begin{thm}
+\begin{theorem}
 Let $X$ be a space of graphs with large girth constructed from a sequence of finite graphs with uniformly bounded vertex degree. Then:
 \begin{enumerate}
 \item the coarse Baum-Connes assembly map is injective for $X$.
 \item If $X$ comes from an expanding sequence then the coarse Baum-Connes assembly map for $X$ is not surjective.
 \end{enumerate}
-\end{thm} 
+\end{theorem} 
 
 Finally in Section \ref{Sect:Counter} we give a counterexample to the boundary coarse Baum-Connes conjecture by considering a space introduced by Wang \cite{MR2363697} and adaptations of the counterexample arguments present in the literature:
 
-\begin{thm}
-There is a space $Y$ constructed from a box space of $SL_{2}(\mathbb{Z})$ for which the boundary coarse Baum-Connes assembly map is injective but fails to be surjective.
-\end{thm}
+\begin{theorem}
+There is a coarsely disconnected space $Y$ constructed from a box space of $SL_{2}(\mathbb{Z})$ for which the boundary coarse Baum-Connes assembly map is injective but fails to be surjective.
+\end{theorem}
 
 \subsection{Acknowledgements}
-The first author wishes to thank the second author, his supervisor, for his unending patience and support and Rufus Willett for carefully reading the first drafts.
+The first author wishes to thank the second author, his supervisor, for his unending patience and support as well as Rufus Willett for carefully reading the first drafts.
 %Change the theorem labellings
 \numberwithin{theorem}{section}
-
+\setcounter{theorem}{0}
 \subsection{Groupoids, expanders and the coarse Baum-Connes conjecture.}\label{Sect:GO}
 In this section we recall some definitions and results from the literature that will appear within the text. We begin with groupoids by focusing on certain relevant examples.
 
@@ -147,7 +146,8 @@ Let $X$ be a topological $\Gamma$-space. Then the \textit{transformation groupoi
 The construction in the example above can be generalized to actions of \'etale groupoids. We are concerned with the topology here: Given an \'etale groupoid $\G$ and a $\G$-space $X$ as well as a with a basis $\lbrace U_{i} \rbrace$ for $\G^{(0)}$. We can pull this basis back to a basis for $X \rtimes \G$ given by $[r_{z}^{-1}(U_{i}),\gamma]$, where $U_{i} \subseteq s(\gamma)$.
 \end{example}
 
-\begin{example}Let $X$ be a coarse space with uniformly locally finite, weakly connected coarse structure $\mathcal{E}$. Define $G(X):=\cup_{E\in \mathcal{E}}\overline{E} \subseteq \beta(X\timesX)$. Then $G(X)$ is a locally compact, Hausdorff topological space. To equip it with a product and inverse we would ideally have liked to be considering the natural extension of the pair groupoid product on $\beta X \times \beta X$.  We remark that the map $(r,s)$ from $X \times X$ extends first to an inclusion into $\beta X \times \beta X$ and universally to $\beta( X \times X)$, giving a map $(r,s): \beta (X\times X) \rightarrow \beta X \times \beta X$. We can restrict this map to each entourage $E \in \mathcal{E}$ allowing us to map the set $G(X)$ to $\beta X \times \beta X$. 
+\begin{example}Let $X$ be a coarse space with uniformly locally finite, weakly connected coarse structure $\mathcal{E}$. Define $G(X):=\cup_{E\in \mathcal{E}}\overline{E} \subseteq \beta(X\times X)$. Then $G(X)$ is a locally compact, Hausdorff topological space. To equip it with a product and inverse we would ideally have liked to be considering the natural extension of the pair groupoid product on $\beta X \times \beta X$.  We remark that the map $(r,s)$ from $X \times X$ extends first to an inclusion into $\beta X \times \beta X$ and universally to $\beta( X \times X)$, giving a map $(r,s): \beta (X\times X) \rightarrow \beta X \times \beta X$. We can restrict this map to each entourage $E \in \mathcal{E}$ allowing us to map the set $G(X)$ to $\beta X \times \beta X$. 
+\end{example}
 
 \begin{lemma}\label{Lem:CorRoe}\cite[Corollary 10.18]{MR2007488}
 Let $X$ be a uniformly discrete bounded geometry metric space and let $E$ be any entourage. Then the inclusion $E \rightarrow X \times X$ extends to an injective homeomorphism $\overline{E} \rightarrow \beta X \times \beta X$, where $\overline{E}$ denotes the closure of $E$ in $\beta(X \times X)$.
@@ -257,13 +257,13 @@ Let $X$ be a uniformly discrete bounded geometry metric space. From what was des
 
 We can now properly formulate the boundary conjecture by replacing the coefficients. Let $A_{\partial}:= \frac{\ell^{\infty}(X,\mathcal{K})}{C_{0}(X,\mathcal{K})}$
 
-\begin{conj} [Boundary Coarse Baum-Connes Conjecture]
+\begin{conjecture} [Boundary Coarse Baum-Connes Conjecture]
 Let $X$ be a uniformly discrete bounded geometry metric space. Then the assembly map:
 \begin{equation*}
 \mu_{bdry}:K_{*}^{top}(G(X)|_{\partial\beta X}, A_{\partial}) \rightarrow K_{*}(A_{\partial}\rtimes_{r}G(X)|_{\partial\beta X})
 \end{equation*}
 is an isomorphism.
-\end{conj}
+\end{conjecture}
 
 \subsection{Tools to Prove the Boundary Conjecture.}
 We consider the situation when a group $\Gamma$ acts on a space of graphs $X$. We introduce a definition:
@@ -952,7 +952,7 @@ It follows from the proof of Proposition \ref{Prop:Crit} that the groupoid $G(Y)
 The groupoid $G(Y)|_{U}$ is isomorphic to $\sqcup_{i}(X_{i}\times X_{i})\times G(\mathbb{N})|_{\partial\beta \mathbb{N}}$.
 \end{lemma}
 \begin{proof}
-We consider the preimages $f^{-1}(X_{i})$. These are clearly invariant subsets of $\beta Y$ that when intersected with the boundary $\partial\beta Y$ are contained within $U$. The restriction of $G(Y)|_{\partial\beta Y}$ to $f^{-1}(X_{i})$ for each $i$ isomorphic to the closed subgroupoid $G(X_{i}\times \mathbb{N})|_{\partial\beta \mathbb{N}}$ of $G(Y)|_{U}$. These groupoids are disjoint by construction and therefore the inclusion $\sqcup_{i}G(X_{i}\times \mathbb{N})|_{\partial\beta \mathbb{N}}$ is an open subgroupoid of $G(Y)|_{U}$. We now prove that:
+We consider the preimages $f^{-1}(X_{i})$. These are clearly invariant subsets of $\beta Y$ that when intersected with the boundary $\partial\beta Y$ are contained within $U$. The restriction of \\$(G(Y)|_{\partial\beta Y})|_{f^{-1}(X_{i})}$ for each $i$ isomorphic to the closed subgroupoid $G(X_{i}\times \mathbb{N})|_{\partial\beta \mathbb{N}}$ of $G(Y)|_{U}$. These groupoids are disjoint by construction and therefore the inclusion $\sqcup_{i}G(X_{i}\times \mathbb{N})|_{\partial\beta \mathbb{N}}$ is an open subgroupoid of $G(Y)|_{U}$. We now prove that:
 \begin{enumerate}
 \item each $G(X_{i} \times \mathbb{N})|_{\partial\beta \mathbb{N}}$ is isomorphic to $(X_{i}\times X_{i})\times G(\mathbb{N})|_{\partial\beta \mathbb{N}}$, where $\mathbb{N}$ has the well-spaced metric;
 \item the union $\sqcup_{i}G(X_{i}\times \mathbb{N})|_{\partial\beta \mathbb{N}}$ is the entire of $G(Y)|_{U}$.
@@ -972,15 +972,14 @@ To conclude that $[\pi(q)]$ is not an element of $K_{0}(C^{*}_{r}(G(Y)|_{U}))$ w
 The element $\pi(q)$ maps to $0$ in $C^{*}_{r}(G(Y)|_{U^{c}})$, but does not belong to the image of  $K_{0}( C^{*}_{r}(G(Y)|_{U}))$ in $K_{0}(C^{*}_{r}(G(Y)|_{\partial\beta Y}$.
 \end{theorem}
 \begin{proof}
-The first part follows from the definition of $\pi(q)$; the quotient map $h$ kills\setlength{\parindent}{0pt}
-\setlength{\parskip}{1ex} all operators that are ghostly in the direction $i \rightarrow \infty$ and $\pi(q)$ is such an operator.
+The first part follows from the definition of $\pi(q)$; the quotient map $h$ kills all operators that are ghostly in the direction $i \rightarrow \infty$ and $\pi(q)$ is such an operator.
 
 To prove the second component we remark that each $U_{i}:=f^{-1}(X_{i}) \cap U$ is a closed saturated subset of $\partial\beta Y$, hence we can consider the reduction to $U_{i}$ for each $i$. We consider the product, and the following map:
 \begin{eqnarray*}
 \phi : C^{*}_{r}(G(Y)|_{\partial\beta Y})& \rightarrow & \prod_{i} C^{*}_{r}(G(Y)|_{U_{i}})= \prod_{i}C^{*}_{r}(G(X_{i} \times \mathbb{N})\\
  T  &\mapsto & \prod_{i}T|_{U_{i}}
 \end{eqnarray*}
-The ideal $C^{*}_{r}(G(Y)|_{U})= \bigoplus_{i}M_{\vert X_{i}\vert} \otimes C(\partial\beta Y)$ maps to the ideal $\bigoplus_{i}C^{*}_{r}(G(X_{i} \times \mathbb{N}))$ under the map $\phi$. So, we can define a tracelike map, in analogy to \cite[Section 6]{explg1}, by composing with the quotient map $\tau$ onto $\frac{\prod_{i}C^{*}_{r}(G(X_{i} \times \mathbb{N}))}{\bigoplus_{i}C^{*}_{r}(G(X_{i} \times \mathbb{N}))}$. This gives us a map at the level of K-theory:
+Under the map $\phi$, the ideal $C^{*}_{r}(G(Y)|_{U})= \bigoplus_{i}M_{\vert X_{i}\vert} \otimes C(\partial\beta Y)$ maps to the ideal \\$\bigoplus_{i}C^{*}_{r}(G(X_{i} \times \mathbb{N}))$. So, we can define a tracelike map, in analogy to \cite[Section 6]{explg1}, by composing with the quotient map $\tau$ onto $\frac{\prod_{i}C^{*}_{r}(G(X_{i} \times \mathbb{N}))}{\bigoplus_{i}C^{*}_{r}(G(X_{i} \times \mathbb{N}))}$. This gives us a map at the level of K-theory:
 \begin{equation*}
 Tr_{*}=\phi \circ \tau : K_{0}(C^{*}_{r}(G(Y)|_{\partial\beta Y})) \rightarrow \frac{\prod_{i}K_{0}(C^{*}_{r}(G(X_{i} \times \mathbb{N})))}{\bigoplus_{i}K_{0}(C^{*}_{r}(G(X_{i} \times \mathbb{N})))}= \frac{\prod_{i}K_{0}(C(\partial\beta \mathbb{N}))}{\bigoplus_{i}K_{0}(C(\partial\beta \mathbb{N}))}
 \end{equation*}
